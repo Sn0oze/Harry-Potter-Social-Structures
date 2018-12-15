@@ -3339,9 +3339,15 @@
         ]
     },
     "remus lupin": {
-        "house": "none",
-        "blood": "unknown",
-        "loyalty": []
+        "house": "gryffindor",
+        "blood": "half-blood",
+        "loyalty": [
+            "marauders",
+            "hogwarts",
+            "potter family",
+            "tonks family",
+            "order of the phoenix"
+        ]
     },
     "euan abercrombie": {
         "house": "gryffindor",
