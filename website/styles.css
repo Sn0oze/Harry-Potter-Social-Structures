@@ -6,9 +6,18 @@ html, body {
     background: #313131;
     border-color: #313131;
 }
+.side-menu{
+    height: 100vh;
+    overflow: auto;
+}
 
 body.dark{
     color: white;
+}
+
+.light-section{
+    background: white;
+    color: black;
 }
 
 .dark button{
@@ -72,7 +81,7 @@ body.dark{
 }
 
 .section-wrapper{
-    
+
 }
 
 .top-nav{
@@ -122,6 +131,12 @@ body.dark{
     height: 100vh;
 }
 
+.network-container img.carousel-net{
+    width: auto;
+    height: 90vh;
+}
+
+
 .network-container img.community{
     width: 100%;
     height: auto;
@@ -152,10 +167,38 @@ body.dark{
     text-align: left;
 }
 
+.legend-2 {
+    color: white;
+    font-size: 1.5em;
+    position: absolute;
+    top: 0.5em;
+    left: 200px;
+    text-align: left;
+}
+
 .legend div{
-    margin-top: 0.5em;
+    margin: 0.5em;
     display: flex;
     align-items: center;
+}
+
+.legend-2 div{
+    margin: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+.legend-image-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    float: right;
+}
+
+.legend-image-container img{
+    max-width: 600px;
+    height: auto;
+    background: #1b242a;
 }
 
 .node-label.gryffindor{
@@ -183,6 +226,12 @@ body.dark{
     background: #4e0333;
     opacity: 0.65;
 }
+
+.node-label.phoenix {
+    background: #fa5b0b;
+    opacity: 0.65;
+}
+
 .node-label.com0{
     background: #1676B6;
     opacity: 0.65;
@@ -293,14 +342,14 @@ body.dark{
 
 section{
     margin-left: 10px;
-    margin-right: 10px 
+    margin-right: 10px
 }
 
-h2 { 
-    width:100%; 
-    text-align:center; 
-    border-bottom: 1px solid white ; 
-    margin:10px 0 20px; } 
+h2 {
+    width:100%;
+    text-align:center;
+    border-bottom: 1px solid white ;
+    margin:10px 0 20px; }
 h2 span { background:#313131; padding:0 10px; }
 
 .no_underline{
@@ -315,4 +364,21 @@ h2 span { background:#313131; padding:0 10px; }
 
 .title{
     font-weight: bolder
+}
+
+td span{
+    color: white;
+}
+
+.col .row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.dark tr{
+    border-color: white;
+}
+
+.hidden-row{
+    display: none;
 }

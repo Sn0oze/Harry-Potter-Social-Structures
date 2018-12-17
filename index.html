@@ -10,7 +10,8 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="website/styles.css">
     <title>Harry Potter</title>
 </head>
@@ -33,31 +34,276 @@
                 <li class="sub-section"><a href="#book4">Goblet of Fire</a></li>
                 <li class="sub-section"><a href="#book5">Order of the Phoenix</a></li>
                 <li class="sub-section"><a href="#book6">Half Blood Prince</a></li>
-                <li class="sub-section"><a href="#book7">Deathly Hallows</a><li>
+                <li class="sub-section"><a href="#book7">Deathly Hallows</a>
+                <li>
                 <li><a href="#clouds">Wordclouds</a></li>
                 <li><a href="#sent">Sentiment Analysis</a></li>
             </ul>
-            <a class="menu-link" href="https://nbviewer.jupyter.org/github/S143923/SG_Harry_Potter/blob/master/Scripts/ExplainerNotebook.ipynb" target="_blank">Notebook</a>
+            <a class="menu-link"
+               href="https://nbviewer.jupyter.org/github/S143923/SG_Harry_Potter/blob/master/Scripts/ExplainerNotebook.ipynb"
+               target="_blank">Notebook</a>
             <div class="github-container">
-                <a class="github-link" href="https://github.com/S143923/SG_Harry_Potter" target="_blank"><i class="fab fa-github fa-3x	"></i></a>
+                <a class="github-link" href="https://github.com/S143923/SG_Harry_Potter" target="_blank"><i
+                        class="fab fa-github fa-3x	"></i></a>
             </div>
         </div>
     </div>
     <div class="col s12 m10 no-padding">
         <h1 class="center title">The Social Structures of Harry Potter</h1>
         <section>
-                <div id="intro" class="section scrollspy">
-                    <div>
-                        <h2 class="center no_underline">Introduction</h2>
-                        <p>
-                            The focus of this project was to analyse the Harry Potter universe using
-                            social networks, sentiment analysis and word clouds. To analyse the social structured,
-                            Networks were created from the movie scripts. Sentiment analysis was used to estimate
-                            and contrast the mood for both the movies and books, and the essence of each book
-                            was isolated and visualized as word clouds.
-                        </p>
+            <div id="intro" class="section scrollspy">
+                <div>
+                    <h2 class="center no_underline">Introduction</h2>
+                    <p>
+                        The focus of this project was to analyse the Harry Potter universe using
+                        social networks, sentiment analysis and word clouds. To analyse the social structured,
+                        Networks were created from the movie scripts. Sentiment analysis was used to estimate
+                        and contrast the mood for both the movies and books, and the essence of each book
+                        was isolated and visualized as word clouds.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <h2 class="center no_underline">Wiki Network</h2>
+            <div class="carousel carousel-slider wordcloud" data-indicators="true" style="min-height: 85vh">
+                <div class="carousel-item lighten-2 white-text wordcloud-img-container">
+                    <div class="network-container">
+                        <img src="plots/networks/wikiNet1.png" class="carousel-net">
+                        <div class="image-overlay">
+                            <div class="legend">
+                                <div><span class="node-label gryffindor"></span>Gryffindor</div>
+                                <div><span class="node-label slytherin"></span>Slytherin</div>
+                                <div><span class="node-label ravenlclaw"></span>Ravenclaw</div>
+                                <div><span class="node-label hufflepuff"></span>Hufflepuff</div>
+                                <div><span class="node-label muggle"></span>Muggle</div>
+                                <div><span class="node-label default"></span>Other</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="carousel-item lighten-2 white-text wordcloud-img-container">
+                    <div class="network-container">
+                        <img src="plots/networks/wikiNet2.png" class="carousel-net">
+                        <div class="image-overlay">
+                            <div class="legend">
+                                <div><span class="node-label phoenix"></span>Order of the Phoenix / Dumbledore's Army
+                                </div>
+                                <div><span class="node-label slytherin"></span>Death Eaters / Loyal to Voldemort</div>
+                                <div><span class="node-label default"></span>Other</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="center">Degree Distribution</h3>
+            <div class="row">
+                <div class="col l4">
+                    <p class="center">Degree Distributions</p>
+                    <div class="image-container">
+                        <img src="plots/distributions/wikiDist.png" alt="distribution">
+                    </div>
+                </div>
+                <div class="col l4">
+                    <p class="center">Degree Distributions with Log Scale</p>
+                    <div class="image-container">
+                        <img src="plots/distributions/wikiDistLogLog.png" alt="distribution">
+                    </div>
+                </div>
+                <div class="col l4">
+                    <p class="center">Degree Distributions with Log Scale</p>
+                    <div class="image-container">
+                        <img src="plots/distributions/inOutDist.png" alt="distribution">
+                    </div>
+                </div>
+            </div>
+            <h3 class="center">Most Connected Nodes</h3>
+            <div class="py-1">
+                <button id="toggleTableBtn" class="waves-effect waves-light btn-flat" onclick="toggleTable()">
+                    Show more
+                </button>
+            </div>
+            <table>
+                <tr>
+                    <th>degree</th>
+                    <th>in degree centrality</th>
+                    <th>out degree centrality</th>
+                    <th>eigenvector centrality</th>
+                    <th>betweeness centrality</th>
+                </tr>
+                <tr>
+                    <td>harry potter<span> 471</span></td>
+                    <td>harry potter<span> 0.3142</span></td>
+                    <td>harry potter<span> 0.1601</span></td>
+                    <td>harry potter<span> 0.2538</span></td>
+                    <td>harry potter<span> 0.0870</span></td>
+                </tr>
+                <tr>
+                    <td>tom riddle<span> 341</span></td>
+                    <td>tom riddle<span> 0.2246</span></td>
+                    <td>ronald weasley<span> 0.1289</span></td>
+                    <td>tom riddle<span> 0.2364</span></td>
+                    <td>albus dumbledore<span> 0.0613</span></td>
+                </tr>
+                <tr>
+                    <td>albus dumbledore<span> 309</span></td>
+                    <td>albus dumbledore<span> 0.1833</span></td>
+                    <td>albus dumbledore<span> 0.1279</span></td>
+                    <td>ronald weasley<span> 0.2174</span></td>
+                    <td>tom riddle<span> 0.0597</span></td>
+                </tr>
+                <tr>
+                    <td>ronald weasley<span> 308</span></td>
+                    <td>ronald weasley<span> 0.1813</span></td>
+                    <td>tom riddle<span> 0.1188</span></td>
+                    <td>hermione granger<span> 0.2157</span></td>
+                    <td>gellert grindelwald<span> 0.0323</span></td>
+                </tr>
+                <tr>
+                    <td>hermione granger<span> 295</span></td>
+                    <td>hermione granger<span> 0.1793</span></td>
+                    <td>hermione granger<span> 0.1178</span></td>
+                    <td>albus dumbledore<span> 0.2061</span></td>
+                    <td>ronald weasley<span> 0.0322</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>ginevra weasley<span> 204</span></td>
+                    <td>ginevra weasley<span> 0.1168</span></td>
+                    <td>ginevra weasley<span> 0.0886</span></td>
+                    <td>severus snape<span> 0.1689</span></td>
+                    <td>hermione granger<span> 0.0278</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>severus snape<span> 183</span></td>
+                    <td>sirius black<span> 0.1128</span></td>
+                    <td>severus snape<span> 0.0765</span></td>
+                    <td>draco malfoy<span> 0.1639</span></td>
+                    <td>ginevra weasley<span> 0.0241</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>sirius black<span> 175</span></td>
+                    <td>severus snape<span> 0.1078</span></td>
+                    <td>rubeus hagrid<span> 0.0745</span></td>
+                    <td>sirius black<span> 0.1639</span></td>
+                    <td>rita skeeter<span> 0.0203</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>draco malfoy<span> 168</span></td>
+                    <td>draco malfoy<span> 0.1037</span></td>
+                    <td>dolores umbridge<span> 0.0715</span></td>
+                    <td>ginevra weasley<span> 0.1601</span></td>
+                    <td>seraphina picquery<span> 0.0150</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>rubeus hagrid<span> 168</span></td>
+                    <td>dolores umbridge<span> 0.0947</span></td>
+                    <td>george weasley<span> 0.0715</span></td>
+                    <td>neville longbottom<span> 0.1533</span></td>
+                    <td>arthur weasley<span> 0.0130</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>dolores umbridge<span> 165</span></td>
+                    <td>rubeus hagrid<span> 0.0947</span></td>
+                    <td>fred weasley<span> 0.0665</span></td>
+                    <td>dolores umbridge<span> 0.1431</span></td>
+                    <td>lucius malfoy<span> 0.0119</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>arthur weasley<span> 156</span></td>
+                    <td>arthur weasley<span> 0.0937</span></td>
+                    <td>neville longbottom<span> 0.0665</span></td>
+                    <td>rubeus hagrid<span> 0.1410</span></td>
+                    <td>phineas nigellus black<span> 0.0117</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>neville longbottom<span> 153</span></td>
+                    <td>neville longbottom<span> 0.0876</span></td>
+                    <td>draco malfoy<span> 0.0655</span></td>
+                    <td>arthur weasley<span> 0.1328</span></td>
+                    <td>gilderoy lockhart<span> 0.0110</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>minerva mcgonagall<span> 139</span></td>
+                    <td>minerva mcgonagall<span> 0.0765</span></td>
+                    <td>sirius black<span> 0.0634</span></td>
+                    <td>molly weasley<span> 0.1300</span></td>
+                    <td>horace slughorn<span> 0.0109</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>luna lovegood<span> 132</span></td>
+                    <td>horace slughorn<span> 0.0735</span></td>
+                    <td>minerva mcgonagall<span> 0.0634</span></td>
+                    <td>minerva mcgonagall<span> 0.1293</span></td>
+                    <td>dolores umbridge<span> 0.0108</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>molly weasley<span> 132</span></td>
+                    <td>bellatrix lestrange<span> 0.0725</span></td>
+                    <td>arthur weasley<span> 0.0634</span></td>
+                    <td>bellatrix lestrange<span> 0.1280</span></td>
+                    <td>rubeus hagrid<span> 0.0107</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>bellatrix lestrange<span> 124</span></td>
+                    <td>luna lovegood<span> 0.0705</span></td>
+                    <td>molly weasley<span> 0.0634</span></td>
+                    <td>remus lupin<span> 0.1265</span></td>
+                    <td>draco malfoy<span> 0.0106</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>fred weasley<span> 119</span></td>
+                    <td>molly weasley<span> 0.0695</span></td>
+                    <td>luna lovegood<span> 0.0624</span></td>
+                    <td>luna lovegood<span> 0.1252</span></td>
+                    <td>gwenog jones<span> 0.0104</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>lucius malfoy<span> 118</span></td>
+                    <td>lucius malfoy<span> 0.0645</span></td>
+                    <td>dean thomas<span> 0.0564</span></td>
+                    <td>percy weasley<span> 0.1110</span></td>
+                    <td>sirius black<span> 0.0100</span></td>
+                </tr>
+                <tr class="hidden-row">
+                    <td>george weasley<span> 118</span></td>
+                    <td>remus lupin<span> 0.0624</span></td>
+                    <td>lucius malfoy<span> 0.0544</span></td>
+                    <td>lucius malfoy<span> 0.1104</span></td>
+                    <td>lucas picquery<span> 0.0099</span></td>
+                </tr>
+            </table>
+            <h3 class="center" Communities></h3>
+            <div class="network-container">
+                <img src="plots/networks/wikiNetCom.png">
+                <div class="image-overlay">
+                    <div class="legend">
+                        <div><span class='node-label' style='background:#b854ce'></span>Community0</div>
+                        <div><span class='node-label' style='background:#b8244d'></span>Community1</div>
+                        <div><span class='node-label' style='background:#0e1f97'></span>Community2</div>
+                        <div><span class='node-label' style='background:#608d59'></span>Community3</div>
+                        <div><span class='node-label' style='background:#85b7cc'></span>Community4</div>
+                        <div><span class='node-label' style='background:#e375d0'></span>Community5</div>
+                        <div><span class='node-label' style='background:#441a21'></span>Community6</div>
+                        <div><span class='node-label' style='background:#05adac'></span>Community7</div>
+                        <div><span class='node-label' style='background:#02c5bc'></span>Community8</div>
+                        <div><span class='node-label' style='background:#2c8968'></span>Community9</div>
+                    </div>
+                    <div class="legend-2">
+                        <div><span class='node-label' style='background:#1f1ad0'></span>Community10</div>
+                        <div><span class='node-label' style='background:#baa2f6'></span>Community11</div>
+                        <div><span class='node-label' style='background:#5bb1ca'></span>Community12</div>
+                        <div><span class='node-label' style='background:#d1df7e'></span>Community13</div>
+                        <div><span class='node-label' style='background:#b14bcb'></span>Community14</div>
+                        <div><span class='node-label' style='background:#3d70f1'></span>Community15</div>
+                        <div><span class='node-label' style='background:#c2e118'></span>Community16</div>
+                        <div><span class='node-label' style='background:#1c9708'></span>Community17</div>
+                        <div><span class='node-label' style='background:#783251'></span>Community18</div>
+                        <div><span class='node-label' style='background:#4ed0de'></span>Community19</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section>
@@ -65,227 +311,243 @@
                 <div>
                     <h2 class="center no_underline">Network Dimensions</h2>
                     <p>
-                        Undirected networks have been constructed using the movie manuscripts, with character information collected from the Harry Potter Wiki, like the characters house, blood status and loyalties.
-                        Each movie script was divided into individual scenes and an edge was added between each character that occurred in the same scene. The network is based on all mentioned characters as the scripts weren’t structured uniformly which made it too impractical to differentiate between
-                        characters that talk in a scene, characters that only are mentioned in speech, or characters that are mentioned in stage directions.
-                        The size of the nodes is scaled by the degree of each node weighted with the number of scenes the character appears in. The number of nodes and edges for each of the movies are illustrated  in the graph below
+                        Undirected networks have been constructed using the movie manuscripts, with character
+                        information collected from the Harry Potter Wiki, like the characters house, blood status and
+                        loyalties.
+                        Each movie script was divided into individual scenes and an edge was added between each
+                        character that occurred in the same scene. The network is based on all mentioned characters as
+                        the scripts weren’t structured uniformly which made it too impractical to differentiate between
+                        characters that talk in a scene, characters that only are mentioned in speech, or characters
+                        that are mentioned in stage directions.
+                        The size of the nodes is scaled by the degree of each node weighted with the number of scenes
+                        the character appears in. The number of nodes and edges for each of the movies are illustrated
+                        in the graph below
                     </p>
                     <div class="image-container">
                         <img class="sequence-image" src="plots/degreeSeries.png" alt="degreesOverTime">
                     </div>
                     <p>
-                        The high number of nodes in Deathly Hallows Part 1, is likely due to the requirement to connect all the loose ends in the story. The book with the minimum number of nodes and edges is Goblet of Fire, and is likely due to the very centered storyline around the Triwizard Tournament. This tournament keeps the story focused on the school and the people present, and this changes as the later book introduce outside groups such as the Order of the Phoenix.
+                        The high number of nodes in Deathly Hallows Part 1, is likely due to the requirement to connect
+                        all the loose ends in the story. The book with the minimum number of nodes and edges is Goblet
+                        of Fire, and is likely due to the very centered storyline around the Triwizard Tournament. This
+                        tournament keeps the story focused on the school and the people present, and this changes as the
+                        later book introduce outside groups such as the Order of the Phoenix.
                     </p>
                 </div>
             </div>
         </section>
         <section>
             <div class=" section scrollspy" id="degreesContainer">
-                    <h2 class="center no_underline">Degrees Over Time</h2>
-                    <p>
-                        The graphs below include each character that was among the top 20 connected nodes
-                        in a least one movie and shows for how many movies the character was among the top 20 as well
-                        as the degree for the movie.
-                        The goal is to illustrate which characters are most important for each movie, but also for the whole
-                        Series.
-                        They are sorted by relevance measured by both the number of movies in which they were among
-                        the 20 most connected nodes as well as their degree in those movie. The three main characters
-                        Harry Potter, Ron Weasley and Hermione Granger are the most relevant characters accoding to this measure.
-                        Many known characters appear in the  top of the list, but it also captures many minor characters that played a
-                        key role in only one movie like the participants of the Triwizard Tournament or students that were patrified by
-                        the Basilisk.
-                    </p>
-                    <div class="py-1">
-                        <button id="toggleDegreeBtn" class="waves-effect waves-light btn-flat" onclick="toggleDegrees()">Show more</button>
+                <h2 class="center no_underline">Degrees Over Time</h2>
+                <p>
+                    The graphs below include each character that was among the top 20 connected nodes
+                    in a least one movie and shows for how many movies the character was among the top 20 as well
+                    as the degree for the movie.
+                    The goal is to illustrate which characters are most important for each movie, but also for the whole
+                    Series.
+                    They are sorted by relevance measured by both the number of movies in which they were among
+                    the 20 most connected nodes as well as their degree in those movie. The three main characters
+                    Harry Potter, Ron Weasley and Hermione Granger are the most relevant characters accoding to this
+                    measure.
+                    Many known characters appear in the top of the list, but it also captures many minor characters that
+                    played a
+                    key role in only one movie like the participants of the Triwizard Tournament or students that were
+                    patrified by
+                    the Basilisk.
+                </p>
+                <div class="py-1">
+                    <button id="toggleDegreeBtn" class="waves-effect waves-light btn-flat" onclick="toggleDegrees()">
+                        Show more
+                    </button>
+                </div>
+                <div class="overflow-auto">
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree1.png">
                     </div>
-                    <div class="overflow-auto">
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree1.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree2.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree3.png">
-                        </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree2.png">
                     </div>
-                    <div style="display: none" id="remainingDegreePlots" class="overflow-auto">
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree4.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree5.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree6.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree7.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree8.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree9.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree10.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree11.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree12.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree13.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree14.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree15.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree16.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree17.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree18.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree19.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree20.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree21.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree22.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree23.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree24.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree25.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree26.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree27.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree28.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree29.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree30.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree31.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree32.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree33.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree34.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree35.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree36.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree37.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree38.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree39.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree40.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree41.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree42.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree43.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree44.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree45.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree46.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree47.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree48.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree49.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree50.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree51.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree52.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree53.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree54.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree55.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree56.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree57.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree58.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree59.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree60.png">
-                        </div>
-                        <div class="col s12 m6 l6 xl4">
-                            <img alt="degrees" class="degree-image" src="plots/degrees/degree61.png">
-                        </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree3.png">
                     </div>
                 </div>
+                <div style="display: none" id="remainingDegreePlots" class="overflow-auto">
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree4.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree5.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree6.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree7.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree8.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree9.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree10.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree11.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree12.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree13.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree14.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree15.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree16.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree17.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree18.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree19.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree20.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree21.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree22.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree23.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree24.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree25.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree26.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree27.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree28.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree29.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree30.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree31.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree32.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree33.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree34.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree35.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree36.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree37.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree38.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree39.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree40.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree41.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree42.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree43.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree44.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree45.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree46.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree47.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree48.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree49.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree50.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree51.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree52.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree53.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree54.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree55.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree56.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree57.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree58.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree59.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree60.png">
+                    </div>
+                    <div class="col s12 m6 l6 xl4">
+                        <img alt="degrees" class="degree-image" src="plots/degrees/degree61.png">
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section>
@@ -293,10 +555,10 @@
                 <div class="section-wrapper">
                     <h2 class="center no_underline">Movie Networks</h2>
                     <p>
-                            The following sections contain detailed networks for each movie and some statistics
-                            that try to break them down, set them into context and take a closer look at detected
-                            communities.
-                        </p>
+                        The following sections contain detailed networks for each movie and some statistics
+                        that try to break them down, set them into context and take a closer look at detected
+                        communities.
+                    </p>
                 </div>
             </div>
         </section>
@@ -315,10 +577,20 @@
                     </span>
                 </h3>
                 <p>
-                    The network for Philosopher’s Stone illustrated the expected high involvement characters such as the professors, students and Dursleys. The Gryffindors are highly represented as would be expected, hardly matched by the Slytherins Snape and Draco Malfoy.
+                    The network for Philosopher’s Stone illustrated the expected high involvement characters such as the
+                    professors, students and Dursleys. The Gryffindors are highly represented as would be expected,
+                    hardly matched by the Slytherins Snape and Draco Malfoy.
                 </p>
                 <p>
-                    The three major characters Harry, Ron and Hermione, closely followed by the characters which are early introduction in the movie; Dumbledore, McGonagall, Hagrid and so on. The network is quite small compared to the later movies, but this is reflected in the necessity to introduce the whole universe in a book, and too many characters may confuse the viewer. Its is from the beginning clear that certain characters have been cut from the movie to achieve this. Peeves the poltergeist is an example of one of these cut characters which are magical in the story but may be superficial in the grand scheme of things. It is however noteworthy that many of these “simple” cuts and changes have affected the later movies greatly as certain plotlines have needed modifying to make sense to the audience.
+                    The three major characters Harry, Ron and Hermione, closely followed by the characters which are
+                    early introduction in the movie; Dumbledore, McGonagall, Hagrid and so on. The network is quite
+                    small compared to the later movies, but this is reflected in the necessity to introduce the whole
+                    universe in a book, and too many characters may confuse the viewer. Its is from the beginning clear
+                    that certain characters have been cut from the movie to achieve this. Peeves the poltergeist is an
+                    example of one of these cut characters which are magical in the story but may be superficial in the
+                    grand scheme of things. It is however noteworthy that many of these “simple” cuts and changes have
+                    affected the later movies greatly as certain plotlines have needed modifying to make sense to the
+                    audience.
                 </p>
                 <div class="network-container">
                     <img src="plots/networks/movie1.png">
@@ -331,6 +603,12 @@
                             <div><span class="node-label muggle"></span>Muggle</div>
                             <div><span class="node-label default"></span>Other</div>
                         </div>
+                        <div class="legend-image-container">
+                            <p class="center">Degree Distributions</p>
+                            <img src="plots/distributions/distrMovie1.png" alt="distribution">
+                            <p class="center">Degree Distributions with Log Scale</p>
+                            <img src="plots/distributions/distrMovie1LogLog.png" alt="distribution">
+                        </div>
                     </div>
                 </div>
                 <h3 class="center">Degree Distribution</h3>
@@ -342,23 +620,15 @@
                     <a href="#degreesContainer">Network Dimensions Over Time</a>.
                     It also seems that there arent any prevelent power laws present in the networks.
                 </p>
-                <div class="row">
-                    <div class="col l6">
-                        <p class="center">Degree Distributions</p>
-                        <div class="image-container">
-                            <img src="plots/distributions/distrMovie1.png" alt="distribution">
-                        </div>
-                    </div>
-                    <div class="col l6">
-                        <p class="center">Degree Distributions with Log Scale</p>
-                        <div class="image-container">
-                            <img src="plots/distributions/distrMovie1LogLog.png" alt="distribution">
-                        </div>
-                    </div>
-                </div>
                 <h3 class="center">Communities</h3>
                 <p>
-                    Three communities are identified in the first movie. Community 0 involves Harry’s family, also defined as characters not connected to his Hogwarts life. Community 1 and 2 are hard to separate from each other, as none of them are unique. They both contain characters which are integral to the mission of the book, as well as side characters which are not. At first glance, Community 2 seems to contain nodes with a larger connection to Harry and the mission, with the exception a few tiny nodes, while few nodes from Community 1 are more connected to the mission. The distribution of known groups in the communities tries to help suggest connections between the characters.
+                    Three communities are identified in the first movie. Community 0 involves Harry’s family, also
+                    defined as characters not connected to his Hogwarts life. Community 1 and 2 are hard to separate
+                    from each other, as none of them are unique. They both contain characters which are integral to the
+                    mission of the book, as well as side characters which are not. At first glance, Community 2 seems to
+                    contain nodes with a larger connection to Harry and the mission, with the exception a few tiny
+                    nodes, while few nodes from Community 1 are more connected to the mission. The distribution of known
+                    groups in the communities tries to help suggest connections between the characters.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -398,7 +668,15 @@
                     </span>
                 </h3>
                 <p>
-                    Compared to the first movie, the trio is more prominent here. The significant size different in the nodes, indicated that we are focusing more on the characters, while the number of nodes are also increasing, with the introduction of new characters. McGonagall and Lockhart are the two prominent professors in this book, with Lockhart being a new character. A character which was never introduced in the series is the Librarian Mrs. Pince. Another new character is Colin Creevey who is quite relevant to the storyline, being one of the petrified students. He is amon one of the larger nodes alongside Ginny, Dumbledore and Voldemort. Another stand out node is Justin Finch-Fletchley a muggle-born Hufflepuff who mistakenly rejects Harry’s attempted friendship when he mistakes him for the Heir of Slytherin.
+                    Compared to the first movie, the trio is more prominent here. The significant size different in the
+                    nodes, indicated that we are focusing more on the characters, while the number of nodes are also
+                    increasing, with the introduction of new characters. McGonagall and Lockhart are the two prominent
+                    professors in this book, with Lockhart being a new character. A character which was never introduced
+                    in the series is the Librarian Mrs. Pince. Another new character is Colin Creevey who is quite
+                    relevant to the storyline, being one of the petrified students. He is amon one of the larger nodes
+                    alongside Ginny, Dumbledore and Voldemort. Another stand out node is Justin Finch-Fletchley a
+                    muggle-born Hufflepuff who mistakenly rejects Harry’s attempted friendship when he mistakes him for
+                    the Heir of Slytherin.
                 </p>
                 <div class="network-container">
                     <img src="plots/networks/movie2.png">
@@ -411,26 +689,25 @@
                             <div><span class="node-label muggle"></span>Muggle</div>
                             <div><span class="node-label default"></span>Other</div>
                         </div>
-                    </div>
-                </div>
-                <h3 class="center">Degree Distribution</h3>
-                <div class="row">
-                    <div class="col l6">
-                        <p class="center">Degree Distributions</p>
-                        <div class="image-container">
+                        <div class="legend-image-container">
+                            <p class="center">Degree Distributions</p>
                             <img src="plots/distributions/distrMovie2.png" alt="distribution">
-                        </div>
-                    </div>
-                    <div class="col l6">
-                        <p class="center">Degree Distributions with Log Scale</p>
-                        <div class="image-container">
+                            <p class="center">Degree Distributions with Log Scale</p>
                             <img src="plots/distributions/distrMovie2LogLog.png" alt="distribution">
                         </div>
                     </div>
                 </div>
                 <h3 class="center">Communities</h3>
                 <p>
-                    A total of five communities are identified in the second movie, indicating a more ambitious storyline. Community 0 contains the absolute integral characters to the story, alongside a few minor, this continue the trend from the first movie, where unlikely characters are included in communities. Community 1 appears to revolve around the story of the chamber and the diary, nicely including nodes related to that storyline. Community 2 involves the nodes mainly seen at Privet Drive. Community 3 loosely covers the characters affected or connected to the basilisks petrification victims. Community 4 contains only, with the exception of one node, Quidditch players from the Gryffindor and Slytherin teams. Community 5 contains otherwise mentioned nodes which consists of primarily Gryffindor students.
+                    A total of five communities are identified in the second movie, indicating a more ambitious
+                    storyline. Community 0 contains the absolute integral characters to the story, alongside a few
+                    minor, this continue the trend from the first movie, where unlikely characters are included in
+                    communities. Community 1 appears to revolve around the story of the chamber and the diary, nicely
+                    including nodes related to that storyline. Community 2 involves the nodes mainly seen at Privet
+                    Drive. Community 3 loosely covers the characters affected or connected to the basilisks
+                    petrification victims. Community 4 contains only, with the exception of one node, Quidditch players
+                    from the Gryffindor and Slytherin teams. Community 5 contains otherwise mentioned nodes which
+                    consists of primarily Gryffindor students.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -473,7 +750,14 @@
                     </span>
                 </h3>
                 <p>
-                    The trio is in the third movie around the same node size as Sirius Black, closely followed by Dumbledore, Wormtail (Peter Pettigrew), Hagrid and Neville. As the story revolves around the escape and manhunt of Black, it is expected to have such a big node. The Slytherins besides Snape are not the main rivalry in this this movie, and this is mirrored in the network. Voldemort is not directly a prominent villain in the story as seen, however from the story we know that his venomosity is, for the better part of the movie, mirrored in Black. Lupin is an unexpected result, as the varying Defence Against the Dark Arts teachers tend to have a large impact on the story and seen with Lockhart. However, his presence is largely felt.
+                    The trio is in the third movie around the same node size as Sirius Black, closely followed by
+                    Dumbledore, Wormtail (Peter Pettigrew), Hagrid and Neville. As the story revolves around the escape
+                    and manhunt of Black, it is expected to have such a big node. The Slytherins besides Snape are not
+                    the main rivalry in this this movie, and this is mirrored in the network. Voldemort is not directly
+                    a prominent villain in the story as seen, however from the story we know that his venomosity is, for
+                    the better part of the movie, mirrored in Black. Lupin is an unexpected result, as the varying
+                    Defence Against the Dark Arts teachers tend to have a large impact on the story and seen with
+                    Lockhart. However, his presence is largely felt.
                 </p>
                 <div class="network-container">
                     <img src="plots/networks/movie3.png">
@@ -486,26 +770,21 @@
                             <div><span class="node-label muggle"></span>Muggle</div>
                             <div><span class="node-label default"></span>Other</div>
                         </div>
-                    </div>
-                </div>
-                <h3 class="center">Degree Distribution</h3>
-                <div class="row">
-                    <div class="col l6">
-                        <p class="center">Degree Distributions</p>
-                        <div class="image-container">
+                        <div class="legend-image-container">
+                            <p class="center">Degree Distributions</p>
                             <img src="plots/distributions/distrMovie3.png" alt="distribution">
-                        </div>
-                    </div>
-                    <div class="col l6">
-                        <p class="center">Degree Distributions with Log Scale</p>
-                        <div class="image-container">
+                            <p class="center">Degree Distributions with Log Scale</p>
                             <img src="plots/distributions/distrMovie3LogLog.png" alt="distribution">
                         </div>
                     </div>
                 </div>
                 <h3 class="center">Communities</h3>
                 <p>
-                    Community 0 Contains characters connected to the main storyline, the Marauders and Buckbeak. Community 1 contains the Weasley family and Voldemort, however the connection is not readily detectable. Community 2 involves the events at Privet Drive. Community 3 revolves around the nodes connected to Hagrid and his trail for Buckbeak's life. Community 4 focuses on the nodes related to the everyday happening at Hogwarts, constructed of Gryffindor students and teachers.
+                    Community 0 Contains characters connected to the main storyline, the Marauders and Buckbeak.
+                    Community 1 contains the Weasley family and Voldemort, however the connection is not readily
+                    detectable. Community 2 involves the events at Privet Drive. Community 3 revolves around the nodes
+                    connected to Hagrid and his trail for Buckbeak's life. Community 4 focuses on the nodes related to
+                    the everyday happening at Hogwarts, constructed of Gryffindor students and teachers.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -547,7 +826,13 @@
                     </span>
                 </h3>
                 <p>
-                    In the Goblet of Fire the first significant difference seen in the sizes of hermione and ron’s node sizes compared to Dumbledore, who surpasses them. Mad Eye Moody follows tightly alongside Cedric Diggory. Though we see the final return of the Dark Lord, Voldemort is still comparatively small compared to other key characters. The three other triwizard competitors are both new and highly mentioned, as illustrated in the network, however considering the fascination with Fleur her node is not as large as fx. Krum’s. Draco Malfoy and Snape are both Harry’s primary antagonists, in this movie however this is not not the case, as focus is elsewhere.
+                    In the Goblet of Fire the first significant difference seen in the sizes of hermione and ron’s node
+                    sizes compared to Dumbledore, who surpasses them. Mad Eye Moody follows tightly alongside Cedric
+                    Diggory. Though we see the final return of the Dark Lord, Voldemort is still comparatively small
+                    compared to other key characters. The three other triwizard competitors are both new and highly
+                    mentioned, as illustrated in the network, however considering the fascination with Fleur her node is
+                    not as large as fx. Krum’s. Draco Malfoy and Snape are both Harry’s primary antagonists, in this
+                    movie however this is not not the case, as focus is elsewhere.
                 </p>
                 <div class="network-container">
                     <img src="plots/networks/movie4.png">
@@ -560,26 +845,21 @@
                             <div><span class="node-label muggle"></span>Muggle</div>
                             <div><span class="node-label default"></span>Other</div>
                         </div>
-                    </div>
-                </div>
-                <h3 class="center">Degree Distribution</h3>
-                <div class="row">
-                    <div class="col l6">
-                        <p class="center">Degree Distributions</p>
-                        <div class="image-container">
+                        <div class="legend-image-container">
+                            <p class="center">Degree Distributions</p>
                             <img src="plots/distributions/distrMovie4.png" alt="distribution">
-                        </div>
-                    </div>
-                    <div class="col l6">
-                        <p class="center">Degree Distributions with Log Scale</p>
-                        <div class="image-container">
+                            <p class="center">Degree Distributions with Log Scale</p>
                             <img src="plots/distributions/distrMovie4LogLog.png" alt="distribution">
                         </div>
                     </div>
                 </div>
                 <h3 class="center">Communities</h3>
                 <p>
-                    Community 0 contains nodes related to Voldemort’s first reign of power. Community 2 is not very specific, but overall contains all nodes relevant to the overall main story. It can be concluded that Community 1 contains the nodes not that important to the story, which differs from the book and therefore hints at the differences between the two. In Community 3 there is not apparent relation between the nodes, besides that they all fight on Harry’s side of the war.
+                    Community 0 contains nodes related to Voldemort’s first reign of power. Community 2 is not very
+                    specific, but overall contains all nodes relevant to the overall main story. It can be concluded
+                    that Community 1 contains the nodes not that important to the story, which differs from the book and
+                    therefore hints at the differences between the two. In Community 3 there is not apparent relation
+                    between the nodes, besides that they all fight on Harry’s side of the war.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -620,7 +900,11 @@
                     </span>
                 </h3>
                 <p>
-                    As seen in Goblet of Fire, Order of the Phoenix have Dumbledore rivaling the appearance of Ron and Hermione. Likely due to the fact of him being mentioned more often. In this movie we are introduced to Professor Umbridge who is a delegate from the ministry of magic and has enormous impact on Hogwarts and Harry. Voldemort is also more prominent, as Harry tried to convince the world of his resurrection.
+                    As seen in Goblet of Fire, Order of the Phoenix have Dumbledore rivaling the appearance of Ron and
+                    Hermione. Likely due to the fact of him being mentioned more often. In this movie we are introduced
+                    to Professor Umbridge who is a delegate from the ministry of magic and has enormous impact on
+                    Hogwarts and Harry. Voldemort is also more prominent, as Harry tried to convince the world of his
+                    resurrection.
                 </p>
                 <div class="network-container">
                     <img src="plots/networks/movie5.png">
@@ -633,26 +917,24 @@
                             <div><span class="node-label muggle"></span>Muggle</div>
                             <div><span class="node-label default"></span>Other</div>
                         </div>
-                    </div>
-                </div>
-                <h3 class="center">Degree Distribution</h3>
-                <div class="row">
-                    <div class="col l6">
-                        <p class="center">Degree Distributions</p>
-                        <div class="image-container">
+                        <div class="legend-image-container">
+                            <p class="center">Degree Distributions</p>
                             <img src="plots/distributions/distrMovie5.png" alt="distribution">
-                        </div>
-                    </div>
-                    <div class="col l6">
-                        <p class="center">Degree Distributions with Log Scale</p>
-                        <div class="image-container">
+                            <p class="center">Degree Distributions with Log Scale</p>
                             <img src="plots/distributions/distrMovie5LogLog.png" alt="distribution">
                         </div>
                     </div>
                 </div>
                 <h3 class="center">Communities</h3>
                 <p>
-                    In Community 0 all the nodes work for the ministry of magic, but appear throughout the movie in different relations to Harry. Community 1 is the community of Dumbledore's Army (DA), which Harry starts as a studygroup to teach themself what Umbridge will not. Bellatrix and Cedric are in this community, and Neville and Cho respectively mention them during their meetings. Community 2 involved the characters connected to Nagini's attack on Mr. Weasley at the ministry of magic. Community 3 concerns the characters involved in the storyline taking place at Privet Drive. Community 4, the rivalry between the twins and Filch is legendary in the books, and they ultimately leave the school telling (in the book) Peeves to give Fitch hell.
+                    In Community 0 all the nodes work for the ministry of magic, but appear throughout the movie in
+                    different relations to Harry. Community 1 is the community of Dumbledore's Army (DA), which Harry
+                    starts as a studygroup to teach themself what Umbridge will not. Bellatrix and Cedric are in this
+                    community, and Neville and Cho respectively mention them during their meetings. Community 2 involved
+                    the characters connected to Nagini's attack on Mr. Weasley at the ministry of magic. Community 3
+                    concerns the characters involved in the storyline taking place at Privet Drive. Community 4, the
+                    rivalry between the twins and Filch is legendary in the books, and they ultimately leave the school
+                    telling (in the book) Peeves to give Fitch hell.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -694,7 +976,10 @@
                     </span>
                 </h3>
                 <p>
-                    In this movie we see Ginny emerge as a large node, this is because of her growing relationship with Harry. We once again see Harry two antagonists grow in node size alongside Voldemort and Slughorn. Slughorn is here introduced as the new teacher of Poisons, and reintroduces Hogwarts to his Slugclub. The movie is largely dominated by Gryffindors and a small group of Slytherins.
+                    In this movie we see Ginny emerge as a large node, this is because of her growing relationship with
+                    Harry. We once again see Harry two antagonists grow in node size alongside Voldemort and Slughorn.
+                    Slughorn is here introduced as the new teacher of Poisons, and reintroduces Hogwarts to his
+                    Slugclub. The movie is largely dominated by Gryffindors and a small group of Slytherins.
                 </p>
                 <div class="network-container">
                     <img src="plots/networks/movie6.png">
@@ -707,26 +992,21 @@
                             <div><span class="node-label muggle"></span>Muggle</div>
                             <div><span class="node-label default"></span>Other</div>
                         </div>
-                    </div>
-                </div>
-                <h3 class="center">Degree Distribution</h3>
-                <div class="row">
-                    <div class="col l6">
-                        <p class="center">Degree Distributions</p>
-                        <div class="image-container">
+                        <div class="legend-image-container">
+                            <p class="center">Degree Distributions</p>
                             <img src="plots/distributions/distrMovie6.png" alt="distribution">
-                        </div>
-                    </div>
-                    <div class="col l6">
-                        <p class="center">Degree Distributions with Log Scale</p>
-                        <div class="image-container">
+                            <p class="center">Degree Distributions with Log Scale</p>
                             <img src="plots/distributions/distrMovie6LogLog.png" alt="distribution">
                         </div>
                     </div>
                 </div>
                 <h3 class="center">Communities</h3>
                 <p>
-                    In Community 0 characters from the Slugclub, founded by Professor Slughorn to stay favorable with students with a promising future, and Slytherins. Community 1 groups Death Eaters, Order members and Diagonally shop owners, all of which fight on either side in the war between good and evil, which occurs outside Hogwarts. Community 3 includes nodes connected to the school, the main nodes being Dumbledore, Slughorn and Voldemort, and the those related to them.
+                    In Community 0 characters from the Slugclub, founded by Professor Slughorn to stay favorable with
+                    students with a promising future, and Slytherins. Community 1 groups Death Eaters, Order members and
+                    Diagonally shop owners, all of which fight on either side in the war between good and evil, which
+                    occurs outside Hogwarts. Community 3 includes nodes connected to the school, the main nodes being
+                    Dumbledore, Slughorn and Voldemort, and the those related to them.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -766,7 +1046,12 @@
                     </span>
                 </h3>
                 <p>
-                    The golden trio is dominating again, which is to be expected as a large portion of the movie documents their solitary travels in a magical tent, hunting Horcruxes. Dumbledore and Voldemort rivals about the attention as the later is an acute threat and the others reputation gets dragged through the mud. The other large players consists largely of member s of the Order of the Phoenix. With the largest cast, it is clear that the movie is setting up the final battle while attempting to tie loose ends.
+                    The golden trio is dominating again, which is to be expected as a large portion of the movie
+                    documents their solitary travels in a magical tent, hunting Horcruxes. Dumbledore and Voldemort
+                    rivals about the attention as the later is an acute threat and the others reputation gets dragged
+                    through the mud. The other large players consists largely of member s of the Order of the Phoenix.
+                    With the largest cast, it is clear that the movie is setting up the final battle while attempting to
+                    tie loose ends.
                 </p>
                 <div class="network-container">
                     <img src="plots/networks/movie7.png">
@@ -779,26 +1064,22 @@
                             <div><span class="node-label muggle"></span>Muggle</div>
                             <div><span class="node-label default"></span>Other</div>
                         </div>
-                    </div>
-                </div>
-                <h3 class="center">Degree Distribution  - Deathly Hallow's part I</h3>
-                <div class="row">
-                    <div class="col l6">
-                        <p class="center">Degree Distributions</p>
-                        <div class="image-container">
+                        <div class="legend-image-container">
+                            <p class="center">Degree Distributions</p>
                             <img src="plots/distributions/distrMovie7.png" alt="distribution">
-                        </div>
-                    </div>
-                    <div class="col l6">
-                        <p class="center">Degree Distributions with Log Scale</p>
-                        <div class="image-container">
+                            <p class="center">Degree Distributions with Log Scale</p>
                             <img src="plots/distributions/distrMovie7LogLog.png" alt="distribution">
                         </div>
                     </div>
                 </div>
                 <h3 class="center">Communities - Deathly Hallow's part I</h3>
                 <p>
-                    Community 0 represents the members of the Order of the Phoenix. In Community 1 the nodes are all involved in the break in at the ministry of magic. Community 2 illustrates the overlap in Dumbledore's story and the quest for the Horcruxes and the Deathly Hallows. Community 3 follows Voldemort’s storyline throughout the movie, from the murder of professor Burbage to the kidnapping of Ollivander. In Community 4 we find mainly minor characters such as the Dursleys and low tier Voldemort followers. Community 5 contains nodes of students at Hogwarts.
+                    Community 0 represents the members of the Order of the Phoenix. In Community 1 the nodes are all
+                    involved in the break in at the ministry of magic. Community 2 illustrates the overlap in
+                    Dumbledore's story and the quest for the Horcruxes and the Deathly Hallows. Community 3 follows
+                    Voldemort’s storyline throughout the movie, from the murder of professor Burbage to the kidnapping
+                    of Ollivander. In Community 4 we find mainly minor characters such as the Dursleys and low tier
+                    Voldemort followers. Community 5 contains nodes of students at Hogwarts.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -831,7 +1112,10 @@
                     </span>
                 </h3>
                 <p>
-                    Ginny, Neville and Seamus are stepping up at Hogwarts in the absence of the trio, alongside Luna and Dean. This shows the importance and power of the DA (Dumbledore's Army). As expected Voldemort plays a huge part in this movie, alongside his trusted Death Eaters. We can also glimpse the names of the main characters offspring.
+                    Ginny, Neville and Seamus are stepping up at Hogwarts in the absence of the trio, alongside Luna and
+                    Dean. This shows the importance and power of the DA (Dumbledore's Army). As expected Voldemort plays
+                    a huge part in this movie, alongside his trusted Death Eaters. We can also glimpse the names of the
+                    main characters offspring.
                 </p>
                 <div class="network-container">
                     <img src="plots/networks/movie8.png">
@@ -844,26 +1128,20 @@
                             <div><span class="node-label muggle"></span>Muggle</div>
                             <div><span class="node-label default"></span>Other</div>
                         </div>
-                    </div>
-                </div>
-                <h3 class="center">Degree Distribution  - Deathly Hallow's part II</h3>
-                <div class="row">
-                    <div class="col l6">
-                        <p class="center">Degree Distributions</p>
-                        <div class="image-container">
+                        <div class="legend-image-container">
+                            <p class="center">Degree Distributions</p>
                             <img src="plots/distributions/distrMovie8.png" alt="distribution">
-                        </div>
-                    </div>
-                    <div class="col l6">
-                        <p class="center">Degree Distributions with Log Scale</p>
-                        <div class="image-container">
+                            <p class="center">Degree Distributions with Log Scale</p>
                             <img src="plots/distributions/distrMovie8LogLog.png" alt="distribution">
                         </div>
                     </div>
                 </div>
                 <h3 class="center">Communities - Deathly Hallows Part II</h3>
                 <p>
-                    Community 0 are the students, professors and Order members involved in the battle of Hogwarts. In Community 1 illustrates the quest for the Horcruxes and Harry’s death. Community 2 is interesting as the common denominator between the nodes is the characters goal to protect or raise harry. Community 3 contains the descendants of the Harry and Ginny, Ron and Hermione, and Tonks and Lupin.
+                    Community 0 are the students, professors and Order members involved in the battle of Hogwarts. In
+                    Community 1 illustrates the quest for the Horcruxes and Harry’s death. Community 2 is interesting as
+                    the common denominator between the nodes is the characters goal to protect or raise harry. Community
+                    3 contains the descendants of the Harry and Ginny, Ron and Hermione, and Tonks and Lupin.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -894,10 +1172,16 @@
                 <div class="section-wrapper">
                     <h2 class="center no_underline">Word Clouds</h2>
                     <p>
-                        The word clouds show the most frequent words of each book that also are most unique for to that book compared to the whole series. This is achieved by using TF-IDF which diminishes the weight of frequent words based on the amount of other books they appears in.
+                        The word clouds show the most frequent words of each book that also are most unique for to that
+                        book compared to the whole series. This is achieved by using TF-IDF which diminishes the weight
+                        of frequent words based on the amount of other books they appears in.
                     </p>
                     <p>
-                        As an example, the first word cloud from Philosopher’s Stone, words like “Fluffy” and “Flamel” show as big letters, which means that these words are frequent and most unique to that particular book. It provides a much better overview of the content of each book compared to a word cloud that is generated for just the plain book text as all important characters would take up most of the space for each book which wouldn’t be very interesting.
+                        As an example, the first word cloud from Philosopher’s Stone, words like “Fluffy” and “Flamel”
+                        show as big letters, which means that these words are frequent and most unique to that
+                        particular book. It provides a much better overview of the content of each book compared to a
+                        word cloud that is generated for just the plain book text as all important characters would take
+                        up most of the space for each book which wouldn’t be very interesting.
                     </p>
                     <div class="carousel carousel-slider wordcloud" data-indicators="true" style="min-height: 85vh">
                         <div class="carousel-item lighten-2 white-text wordcloud-img-container">
@@ -938,14 +1222,29 @@
                     <h2 class="center no_underline">Sentiment Analysis</h2>
                     <h3 class="center">Overall</h3>
                     <p>
-                        Compare the sentiments of movie and books, is to more or less look into the one-dimensional mood-scale, considering happy verses sad. But the values found vary so little that there is not much to be concluded, though the overall graphs can be justified with the events of the books. The dataset used to calculate the sentiment, is not representative of the harry potter universe, due to its unique world. Some strongly implicative words such as Dark Lord, Death Eaters and Muggle have huge meanings in the wizarding world, they also highlight the importance of neighbouring words, to the single words understanding. In any of the sentiment analysis, is so tiny any form of analysis is borderline speculative, however we still intent to try as we have found the results to fit very well with the material.
+                        Compare the sentiments of movie and books, is to more or less look into the one-dimensional
+                        mood-scale, considering happy verses sad. But the values found vary so little that there is not
+                        much to be concluded, though the overall graphs can be justified with the events of the books.
+                        The dataset used to calculate the sentiment, is not representative of the harry potter universe,
+                        due to its unique world. Some strongly implicative words such as Dark Lord, Death Eaters and
+                        Muggle have huge meanings in the wizarding world, they also highlight the importance of
+                        neighbouring words, to the single words understanding. In any of the sentiment analysis, is so
+                        tiny any form of analysis is borderline speculative, however we still intent to try as we have
+                        found the results to fit very well with the material.
                     </p>
                     <h4 class="center">Book</h4>
                     <p>
-                        This sentiment is calculated from the dialog from each movie. This was found to be the best indicator, through testing, as a book contains large amount of descriptive text.
+                        This sentiment is calculated from the dialog from each movie. This was found to be the best
+                        indicator, through testing, as a book contains large amount of descriptive text.
                     </p>
                     <p>
-                        The graph nicely illustrates the how we experience the movies. The first is introduction to the wizarding universe from the view of an 11 year old. It is magical and fantastic, and danger is not really comprehensible. The stakes are higher in the second and third, where the danger becomes life threatening. In Goblet of Fire we are once again introduced to something magical and exciting. The fifth and sixth books both have both discouraging and encouraging plotlines running in the books narrative. And as expected the seventh and last book Voldemort sends the wizarding world into a downwards spiral, that Harry must save.
+                        The graph nicely illustrates the how we experience the movies. The first is introduction to the
+                        wizarding universe from the view of an 11 year old. It is magical and fantastic, and danger is
+                        not really comprehensible. The stakes are higher in the second and third, where the danger
+                        becomes life threatening. In Goblet of Fire we are once again introduced to something magical
+                        and exciting. The fifth and sixth books both have both discouraging and encouraging plotlines
+                        running in the books narrative. And as expected the seventh and last book Voldemort sends the
+                        wizarding world into a downwards spiral, that Harry must save.
                     </p>
                     <div class="image-container">
                         <p>Sentiments by Book</p>
@@ -953,18 +1252,28 @@
                     </div>
                     <h4 class="center">Chapters</h4>
                     <p>
-                        The sentiment analysis of the book chapters are also based of the dialog. Here the overall development in sentiment is very linear. Keys events such as Dumbledore’s and the resurrection of Voldemort clearly identifiable, oddly enough this does not apply to the dead of Sirius. The second chapter in Goblet of Fire is entirely inner dialogue and description - aka. No dialog - and thus has a sentiment of zero.
+                        The sentiment analysis of the book chapters are also based of the dialog. Here the overall
+                        development in sentiment is very linear. Keys events such as Dumbledore’s and the resurrection
+                        of Voldemort clearly identifiable, oddly enough this does not apply to the dead of Sirius. The
+                        second chapter in Goblet of Fire is entirely inner dialogue and description - aka. No dialog -
+                        and thus has a sentiment of zero.
                     </p>
                     <div class="image-container">
-                            <p>Sentiments by Chapter</p>
+                        <p>Sentiments by Chapter</p>
                         <img class="sent-image" src="plots/sentimants/sentChap.png" alt="sentiment">
                     </div>
                     <h4 class="center">Movie-Scenes</h4>
                     <p>
-                        The sentiment is calculated for a full scene, stage directions and all, as it was very hard to seperate the dialog, reasons are listed in the Notebook. The average sentiment of the movies are 0.5 below that of the books, which would be interesting to further investigate. The drop in Prisoner of Azkaban is due to a faulty scene. In Order of the Phoenix the sentiment is much lower towards the end of the movie possibly indicating that the movie has better conveyed the sad feeling of Harry because of Sirius’ murder. The death of Cedric and Dumbledore are however not very clearly identifiable.
+                        The sentiment is calculated for a full scene, stage directions and all, as it was very hard to
+                        seperate the dialog, reasons are listed in the Notebook. The average sentiment of the movies are
+                        0.5 below that of the books, which would be interesting to further investigate. The drop in
+                        Prisoner of Azkaban is due to a faulty scene. In Order of the Phoenix the sentiment is much
+                        lower towards the end of the movie possibly indicating that the movie has better conveyed the
+                        sad feeling of Harry because of Sirius’ murder. The death of Cedric and Dumbledore are however
+                        not very clearly identifiable.
                     </p>
                     <div class="image-container">
-                            <p>Sentiments by Movie-Scenes</p>
+                        <p>Sentiments by Movie-Scenes</p>
                         <img class="sent-image" src="plots/sentimants/sentScenes.png" alt="sentiment">
                     </div>
                 </div>
@@ -977,7 +1286,9 @@
 <!--JavaScript at end of body for optimized loading-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 <script type="text/javascript" src="website/materialize/js/materialize.min.js"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.4.1/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.4.1/js/all.js"
+        integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7"
+        crossorigin="anonymous"></script>
 <script src="website/main.js"></script>
 </body>
 </html>
