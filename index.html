@@ -64,6 +64,7 @@
                             <li><a href="Data_Set_S1.txt" download>Sentiment Score</a> - 407 KB</li>
                             <li><a href="Scripts/characterInfoDict2.json" download="characterInfo">Extracted Character info</a> - 102 KB</li>
                             <li><a href="books/HP_all.txt" download="BookCollection">Book Collection</a> - 6.5 MB</li>
+                            <li><a href="Scripts/nameDict.json" download="BookCollection">Name Mappings to Recognize Characters by Part of Their Name</a> - 52 KB</li>
                             <li>
                                 <h6>Processed Movie Scripts</h6>
                                 <ul>
@@ -119,10 +120,44 @@
 
 
         <section id="wikiNet" class="scrollspy section">
-            <h2 class="center no_underline">Wiki Network</h2>
+            <h3 class="center no_underline">
+                Wiki Network
+                <span class="tooltipped"
+                      data-position="top"
+                      data-tooltip="You can hover over networks to see a legend">
+                        <i class="fas fa-info-circle fa header-tooltip"></i>
+                    </span>
+            </h3>
+            <div class="section">
+                <p>
+                    This section describes the network that was created from the fan Wiki to
+                    map out The relationships between all characters that have lived throughout the different eras
+                    in the Harry Potter universe.
+                </p>
+                <p>
+                    The network was constructed by going through the pages of the wiki and for each page that belonged to a
+                    character, the links to all other characters where collected.
+                    The result was directed graph where each node is a character with edges to all other characters that where
+                    referenced on the characters page.
+                </p>
+                <p>
+                    The Wiki dump contains 15728 pages, but not all of the are dedicated for characters.
+                    As there are no obvious identifiers for character pages
+                    a <a href="https://www.hp-lexicon.org/characters/" target="_blank">list of (hopefully) all known characters</a>
+                    was collected in order to identify the those pages that belong to characters.
+                    After cleaning the list to ensure that the family pages weren't included and resolving some minor name miss
+                    matches for a few characters the resulting graph contained 994 nodes and 7598 Edges
+                </p>
+                <p>
+                    Information about the characters like the house, blood status and loyalties that were extracted from the
+                    Wiki were used to color the nodes of the network and the degree of
+                    the nodes where used to scale the size of the nodes to provide additional information
+                </p>
+            </div>
             <div class="carousel carousel-slider wordcloud" data-indicators="true" style="min-height: 85vh">
                 <div class="carousel-item lighten-2 white-text wordcloud-img-container">
                     <div class="network-container">
+                        <p>Characters Colored by House - If known</p>
                         <img src="plots/networks/wikiNet1.png" class="carousel-net">
                         <div class="image-overlay">
                             <div class="legend">
@@ -138,6 +173,7 @@
                 </div>
                 <div class="carousel-item lighten-2 white-text wordcloud-img-container">
                     <div class="network-container">
+                        <p>Characters Colored by Good vs. Evil</p>
                         <img src="plots/networks/wikiNet2.png" class="carousel-net">
                         <div class="image-overlay">
                             <div class="legend">
@@ -150,7 +186,38 @@
                     </div>
                 </div>
             </div>
+            <div class="section">
+                <p>
+                    when coloring the nodes by house membership, the first things that catches the eye is the red and green center
+                    of the network meaning that the most important nodes belong to either Gryffindor or Slytherin.
+                    While the houses form some small clusters, they aren't strictly separated and have a fair amount of mixing.
+                    While Gryffindors tend to be closer to the center of the class, the other house tend to be more towards the outer layer
+                    also Slytherins a somewhat separated from Ravenclaws and Hufflepuffs which a placed on the opposite side of the
+                    outer layers.
+                    It also a small fraction of the known characters that was actively part of the battle as the majority of the nodes
+                    are not explicitly part of any of those fractions,
+                </p>
+                <p>
+                    For the next graph, the coloring the nodes corresponds by good and evil. A character is defined as good if part of either the order of the phoenix
+                    or Dumbledore's army while a character is considered evil if they are loyal to the Death Eaters or Lord Voldemort.
+                    While there is large pure cluster of good characters on the west side of the network the two groups aren't very well
+                    separated meaning that there is a fair bit of referencing across the two fractions.
+                </p>
+                <p>
+                    One thing that becomes apparent from those two graphs is the tendency that house and fraction (good and evil) membership
+                    is not known or irrelevant for a fair portion of the network, which suggests that there is a lot more the the universe than the battle
+                    against Voldemort.
+                </p>
+            </div>
             <h3 class="center">Degree Distribution</h3>
+            <div class="section">
+                <p>
+                    The graphs below illustrate the degree distribution of the characters. It shows that most of the characters have a very low degree
+                    with only a few highly connected characters. The shape of the log transformed degree distribution indicates the presence of a power law
+                    which is typical for a scale-free network such as social networks. It also appears that there is a linear correlation of the number of in and
+                    out-going connections.
+                </p>
+            </div>
             <div class="row">
                 <div class="col l4">
                     <p class="center">Degree Distributions</p>
@@ -172,6 +239,67 @@
                 </div>
             </div>
             <h3 class="center">Most Connected Nodes</h3>
+            <div class="section">
+                <p>
+                    To further analyse the network we look into the degrees and centralities of the nodes. This provide some information about the most
+                    central characters to the Harry Potter universe and hopefully reveal som unexpected characters.
+                </p>
+                <h4 class="center">Degree</h4>
+                <p>
+                    The degree analysis is concerned with the total number of edges connected of a node, thus indicating how connected a node is.
+                </p>
+                <p>
+                    As expected Harry Potter is by far the most connected character in this analysis, being the main protagonist
+                    he is the focus point in the story. The series is, for the majority, whitten in first person, and even with the
+                    supplementary canon informations released through Pottermore, the Fantastic Beasts series and J.K. Rowling's personal
+                    Twitter account, the information is mainly is giving through Harry’s perspective. To our surprise the following two most
+                    connected nodes are Voldemort (Birth Name: Tom Riddle)  and Albus Dumbledore. This is of course because of their ties to
+                    everything happening in the Wizarding universe during the Books series’ timespan. Ron Weasley and Hermione Granger then follow.
+                    A surprising trend which will be seen through this analysis, is that Ron is more connected than Hermione. This in itself makes
+                    sense as he a child of the Wizarding world, with a highly connected family, but a common conception of the story is Hermione
+                    being vital to the success of Harry’s adventures. And while this analysis does not prove the truth of this conception,
+                    it does show that her connections in the story may be affected by her blood connections within the Wizarding world.
+                </p>
+                <h4 class="center">In/out Degree Centrality</h4>
+                <p>
+                    In and out degree centrality lists the nodes ingoing edges (in degree centrality) and outgoing
+                    edges (out degree centrality).
+                </p>
+                <p>
+                    While the in degree centrality list mirrors that of the degree’s overall, the out degree centrality
+                    supports the discussion of Ron being more connected due to his wizarding family. He has a large family
+                    (even for the wizarding world) with embers in many of the stories communities, such as the ministry of
+                    magic, the Order of the Phoenix and the triwizard tournament. Due to Dumbledore's wizarding lineage
+                    and accomplishments he also rates high on this list, while Voldemort grew up in a muggle orphanage before
+                    attending Hogwarts and discovering his wizarding powers.
+                </p>
+                <h4 class="center">Eigenvector centrality</h4>
+                <p>
+                    How much influence a nodes has on the network is estimated through eigenvector centrality.
+                </p>
+                <p>
+                    We may have expected Dumbledore to top this list, but yet again we find Harry there. This is likely
+                    due to many of Dumbledore’s influential endeavours not being specified besides the acknowledgement of them being vast.
+                    When studying the list it is clear that the most influential characters are those who have largely influences harry
+                    and his journey, and not the overall story.
+                </p>
+                <h4 class="center">Betweenness centrality</h4>
+                <p>
+                    A central node has the most information passing through is, and is discovered through the betweenness
+                    centrality.
+                </p>
+                <p>
+                    The surprising character in this list is Gellert Grindelwald who is a minor character to the
+                    Harry Potter universe, but central to Dumbledore’s story. As his and Dumbledore’s youth adventures
+                    dived into the story and existence of the deathly Hallows, this is most likely the reason for this
+                    betweenness in the network.
+                    Horace Slughorn, who is known for his networking with promising Students at Hogwarts and whom he expects to
+                    grow into influential positions in the wizarding world, has both a high in degree and betweenness centrality, but isn't
+                    present for the remaining measures. This suggest that Slughorn indeed has quite a good eye for promising students that fulfill their potential.
+                    An other unexpected character on the list is Gwenog Jones who a Famous Quidditch player in the wizard world, but just a very minor character
+                    in the books and movies. This suggestes that quite a few characters actively follow the Quidditch scene, the wizard worlds most popular sport.
+                </p>
+            </div>
             <div class="py-1">
                 <button id="toggleTableBtn" class="waves-effect waves-light btn-flat" onclick="toggleTable()">
                     Show more
@@ -326,7 +454,7 @@
                     <td>lucas picquery<span> 0.0099</span></td>
                 </tr>
             </table>
-            <h3 class="center" Communities></h3>
+            <h3 class="center">Communities</h3>
             <div class="network-container">
                 <img src="plots/networks/wikiNetCom.png">
                 <div class="image-overlay">
