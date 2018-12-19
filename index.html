@@ -498,9 +498,30 @@
                 <div class="section-wrapper">
                     <h2 class="center no_underline">Movie Networks</h2>
                     <p>
-                        The following sections contain detailed networks for each movie and some statistics
-                        that try to break them down, set them into context and take a closer look at detected
-                        communities.
+                        The goal of the wiki network was to get an impression of the composition and dimensions of
+                        the whole harry potter universe. We will now take a closer look at the movie scripts as they cover
+                        the universe's most central and well documented story lines and will see to which degree the structures
+                        encountered in the movies align with the findings from the fan wiki.
+                    </p>
+                    <p>
+                        The networks have been constructed by going through the movies scene by scene, tokenize the scenes into words and then
+                        looked up the tokens in a dictionary that contained all first and last- and middle-names that could be used to identify unique characters.
+                        The dictionary was constructed based on the before mentioned list of characters and also listed in the data sets. In some cases characters
+                        could be identified by only part of their name such as Mr. or Mrs. Weasly. Those characters where identified separably by full string matches
+                        within the scenes and required some deeper knowledge of the scripts.
+                        Edges where added between all characters that where mentioned within the same scene. The resulting networks are undirected in contrast
+                        to the Wiki network.
+                    </p>
+                    <p>
+                        Like in the Wiki network, the size of the nodes is scaled according to the characters degree. Some minor characters that appear in only
+                        one but fairly large scene with many characters, have inflated degree as a consequence. To account for the the size of the nodes
+                        is also weighted by the number of scenes that a characters appears in.
+                        The nodes are mainly colored according to their house membership based on character information that was also used in the Wiki network.
+                        If no information about the house membership is unavailable, but the blood status is known, the characters a either marked as muggles or magical
+                        beeings of some sort.
+                    </p>
+                    <p>Before we take a closer look at the networks of the each movie, let's look at the temporal aspect of the networks see how the networks
+                        develop over time.
                     </p>
                 </div>
             </div>
@@ -509,21 +530,23 @@
         <section id="degrees" class="scrollspy">
             <div class="section">
                 <div>
-                    <h2 class="center no_underline">Network Dimensions</h2>
-                    <p>
-                        Undirected networks have been constructed using the movie manuscripts, with character
-                        information collected from the Harry Potter Wiki, like the characters house, blood status and
-                        loyalties.
-                        Each movie script was divided into individual scenes and an edge was added between each
-                        character that occurred in the same scene. The network is based on all mentioned characters as
-                        the scripts weren’t structured uniformly which made it too impractical to differentiate between
-                        characters that talk in a scene, characters that only are mentioned in speech, or characters
-                        that are mentioned in stage directions.
-                        The size of the nodes is scaled by the degree of each node weighted with the number of scenes
-                        the character appears in. The number of nodes and edges for each of the movies are illustrated
-                        in the graph below
-                    </p>
+                    <h3 class="center no_underline">Network Dimensions</h3>
+                    <div class="section">
+                        <p>
+                            The first obvious difference between the movie and wiki networks the difference in size.
+                            While the Wiki network has just a little under a 1000 nodes, the movie networks are far smaller
+                            with something between roughly one-twentieth to one-tenth of the number of nodes.
+                            The amount of characters in the movie dips towards the middle of the series and the increases towards
+                            the end. The number of nodes and edges seem to correlate linearly except for the last movie where the
+                            number of edges is noticeably higher compared to the other movies.
+                        </p>
+                        <p>
+                            It shows that even though though there is a large variety of characters in the Harry Potter universe, only s small
+                            fraction was given actual dialog or mentioned in the sanes either trough the dialog or in stage directions.
+                        </p>
+                    </div>
                     <div class="image-container">
+                        <p>Movie Network size over Time</p>
                         <img class="sequence-image" src="plots/degreeSeries.png" alt="degreesOverTime">
                     </div>
                     <p>
@@ -538,23 +561,37 @@
         </section>
         <section id="degreesContainer" class="scrollspy">
             <div class=" section" >
-                <h2 class="center no_underline">Degrees Over Time</h2>
-                <p>
-                    The graphs below include each character that was among the top 20 connected nodes
-                    in a least one movie and shows for how many movies the character was among the top 20 as well
-                    as the degree for the movie.
-                    The goal is to illustrate which characters are most important for each movie, but also for the whole
-                    Series.
-                    They are sorted by relevance measured by both the number of movies in which they were among
-                    the 20 most connected nodes as well as their degree in those movie. The three main characters
-                    Harry Potter, Ron Weasley and Hermione Granger are the most relevant characters accoding to this
-                    measure.
-                    Many known characters appear in the top of the list, but it also captures many minor characters that
-                    played a
-                    key role in only one movie like the participants of the Triwizard Tournament or students that were
-                    patrified by
-                    the Basilisk.
-                </p>
+                <h3 class="center no_underline">Degrees Over Time</h3>
+                <div class="section">
+                    <p>
+                        One advantage of looking at the movies one at a time and turning them into networks is
+                        that it allows to get an insight of the characters importance throughout the years.
+                        The movies follow Harry and his companions from his first year at Hogwarts to the final Battle against
+                        Lord Voldemort.
+                        Now we can see when his closest companions or foes enter and leave the stage throughout the series.
+                    </p>
+                    <p>
+                        The graphs below include each character that was among the top 20 connected nodes
+                        in at least one movie and shows for how many movies the character was among the top 20 connected and how high the
+                        degree was.
+                        The goal is to illustrate which characters are most important for each movie, but also for the whole
+                        Series.
+                        The three main characters
+                        Harry Potter, Ron Weasley and Hermione Granger are the most relevant characters according to this
+                        measure which comes to no surprise.
+                        Many known characters appear in the top of the list, but it also captures many minor characters that
+                        played a key role in only one movie like the participants of the Triwizard Tournament like Victor Krum and Cedric Diggory,
+                        students who were petrified by the Basilisk like Colin Crevey, Professors in defenses against the dark arts like Quirrel,
+                        Lockhardt, Remus Lupin and Mad-Eye Moody, or members of Dumbledore's army and the order of the phoenix who become more relevant
+                        towards the end of the series like Luna Lovegood and Tonks.
+                        Likewise enemies like Bellatrix Lestrange and Fenrir Grayback appear more towards the end after Vlodemort has been resurrected and
+                        The fight against him moves towards the climax.
+                    </p>
+                    <p>
+                        The following sections take a closer look at the networks and analyze the naturally occurring communities that
+                        have been detected trough the Louvain community detection algorithm.
+                    </p>
+                </div>
                 <div class="py-1">
                     <button id="toggleDegreeBtn" class="waves-effect waves-light btn-flat" onclick="toggleDegrees()">
                         Show more
@@ -800,23 +837,25 @@
                     </div>
                 </div>
                 <h3 class="center">Degree Distribution</h3>
-                <p>
-                    A trend, that also rouglhy applies to all degree distibutions of the remaining movies,
-                    shows that most nodes have a degree in the rage from 8-15 that look rougly normat
-                    distributed around that range. Only a few characters have degrees in the range of 40-50.
-                    Those nodes are the main characters which is also reflected in the graphs from the section
-                    <a href="#degreesContainer">Network Dimensions Over Time</a>.
-                    It also seems that there arent any prevelent power laws present in the networks.
-                </p>
+               <div class="section">
+                   <p>
+                       A trend, that also roughly applies to the degree distributions of all movies,
+                       shows that most nodes have a degree in the rage from 8-15 that look roughly normal
+                       distributed around that range. Only a few characters have degrees in the range of 40-50.
+                       Those nodes are the main characters which is also reflected in the graphs from the section
+                       <a href="#degreesContainer">Network Dimensions Over Time</a>.
+                       It also seems that there aren't any prevalent power laws present in the networks in contrast to the
+                       wiki network.
+                   <p>
+                   The only network that has a distribution that to resembles a power law the closest is the network
+                   for the Deathly Hallows I, which is also the largest network containing the most characters, which that
+                   this effect possibly could be explained by the small network sized alone.
+
+                   </p>
+               </div>
                 <h3 class="center">Communities</h3>
                 <p>
-                    Three communities are identified in the first movie. Community 0 involves Harry’s family, also
-                    defined as characters not connected to his Hogwarts life. Community 1 and 2 are hard to separate
-                    from each other, as none of them are unique. They both contain characters which are integral to the
-                    mission of the book, as well as side characters which are not. At first glance, Community 2 seems to
-                    contain nodes with a larger connection to Harry and the mission, with the exception a few tiny
-                    nodes, while few nodes from Community 1 are more connected to the mission. The distribution of known
-                    groups in the communities tries to help suggest connections between the characters.
+                    Three communities are identified in the first movie. Community 0 involves Harry’s family, his parents, aunt, uncle and cousin. Community 1 and 2 are hard to separate from each other, as none of them are unique. They both contain characters which are integral to the mission of the book, as well as side characters which are not. At first glance, Community 2 seems to contain nodes with a larger connection to Harry and the mission of the movie, with the exception a few tiny nodes, while few nodes from Community 1 are also connected to the mission. The distribution of known groups in the communities tries to help suggest connections between the characters.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -887,15 +926,7 @@
                 </div>
                 <h3 class="center">Communities</h3>
                 <p>
-                    A total of five communities are identified in the second movie, indicating a more ambitious
-                    storyline. Community 0 contains the absolute integral characters to the story, alongside a few
-                    minor, this continue the trend from the first movie, where unlikely characters are included in
-                    communities. Community 1 appears to revolve around the story of the chamber and the diary, nicely
-                    including nodes related to that storyline. Community 2 involves the nodes mainly seen at Privet
-                    Drive. Community 3 loosely covers the characters affected or connected to the basilisks
-                    petrification victims. Community 4 contains only, with the exception of one node, Quidditch players
-                    from the Gryffindor and Slytherin teams. Community 5 contains otherwise mentioned nodes which
-                    consists of primarily Gryffindor students.
+                    A total of five communities are identified in the second movie, indicating a more ambitious storyline and cast. Community 0 contains the absolute integral characters to the story, alongside a few minor, this continue the trend from the first movie, where unlikely characters are included in communities. Community 1 appears to revolve around the story of the Chamber of Secrets and Tom Riddle’s diary. Community 2 involves the nodes connected to the events in the beginning of the movie, at his Uncle’s place. Community 3 loosely covers the characters affected or connected to the basilisks petrification victims. Community 4 contains only, with the exception of one node, Quidditch players from the Gryffindor and Slytherin teams. Community 5 consists of primarily Gryffindor students.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -968,11 +999,7 @@
                 </div>
                 <h3 class="center">Communities</h3>
                 <p>
-                    Community 0 Contains characters connected to the main storyline, the Marauders and Buckbeak.
-                    Community 1 contains the Weasley family and Voldemort, however the connection is not readily
-                    detectable. Community 2 involves the events at Privet Drive. Community 3 revolves around the nodes
-                    connected to Hagrid and his trail for Buckbeak's life. Community 4 focuses on the nodes related to
-                    the everyday happening at Hogwarts, constructed of Gryffindor students and teachers.
+                    Community 0 contains characters connected to the main storyline, such as the Marauders and Buckbeak. Community 1 contains the Weasley family and Voldemort, however the connection between them is not readily detectable. Community 2 involves the events at Harry’s Aunt and Uncle’s house, where he blows up his uncle’s sister. Community 3 is Hagrid and his trail for Buckbeak's life. Community 4 focuses on the nodes related to the everyday happening at Hogwarts, constructed of Gryffindor students and teachers.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -1043,11 +1070,7 @@
                 </div>
                 <h3 class="center">Communities</h3>
                 <p>
-                    Community 0 contains nodes related to Voldemort’s first reign of power. Community 2 is not very
-                    specific, but overall contains all nodes relevant to the overall main story. It can be concluded
-                    that Community 1 contains the nodes not that important to the story, which differs from the book and
-                    therefore hints at the differences between the two. In Community 3 there is not apparent relation
-                    between the nodes, besides that they all fight on Harry’s side of the war.
+                    Community 0  is related to Voldemort’s first reign of power, the people who supported him and those affected by his tyrony. Community 2 is not very specific, but overall contains all nodes relevant to the overall main story. It can be concluded that Community 1 is the main characters connected to the storyline of the triwizard tournament and new defence against the dark arts teacher, besides the trio. In Community 3 there is not apparent relation between the nodes, besides that they all fight on Harry’s side of the war and the nodes are not that important to the movies story, which differs from the book and therefore hints at the differences between the two.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -1115,14 +1138,7 @@
                 </div>
                 <h3 class="center">Communities</h3>
                 <p>
-                    In Community 0 all the nodes work for the ministry of magic, but appear throughout the movie in
-                    different relations to Harry. Community 1 is the community of Dumbledore's Army (DA), which Harry
-                    starts as a studygroup to teach themself what Umbridge will not. Bellatrix and Cedric are in this
-                    community, and Neville and Cho respectively mention them during their meetings. Community 2 involved
-                    the characters connected to Nagini's attack on Mr. Weasley at the ministry of magic. Community 3
-                    concerns the characters involved in the storyline taking place at Privet Drive. Community 4, the
-                    rivalry between the twins and Filch is legendary in the books, and they ultimately leave the school
-                    telling (in the book) Peeves to give Fitch hell.
+                    In Community 0 all the nodes work for the ministry of magic, but appear throughout the movie in different relations to Harry. Community 1 is the community of Dumbledore's Army (DA), which Harry starts as a studygroup to teach themselves what Umbridge will not. Bellatrix and Cedric are in this community, as Neville and Cho respectively mention them during their DA meetings. Community 2 involves the characters connected to Nagini's attack on Mr. Weasley at the ministry of magic. Community 3 concerns the characters involved in the storyline taking place at Harry's Aunt and Uncles place. Community 4 concerns the rivalry between the twins and Filch which is legendary in the books.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -1190,11 +1206,7 @@
                 </div>
                 <h3 class="center">Communities</h3>
                 <p>
-                    In Community 0 characters from the Slugclub, founded by Professor Slughorn to stay favorable with
-                    students with a promising future, and Slytherins. Community 1 groups Death Eaters, Order members and
-                    Diagonally shop owners, all of which fight on either side in the war between good and evil, which
-                    occurs outside Hogwarts. Community 3 includes nodes connected to the school, the main nodes being
-                    Dumbledore, Slughorn and Voldemort, and the those related to them.
+                    In Community 0 characters are from the Slugclub, founded by Professor Slughorn to stay favorable with students with a promising future, and Slytherins. Community 1 groups Death Eaters, Order members and Diagonally shop owners, all of which fight on either side in the war between good and evil, which occurs in the wizarding world outside Hogwarts’ walls. Community 3 includes nodes connected to the school, the main nodes being Dumbledore, Slughorn and Voldemort, and the those related to them. Community 2 is the nodes connected to Harry's storyline.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -1262,12 +1274,7 @@
                 </div>
                 <h3 class="center">Communities - Deathly Hallow's part I</h3>
                 <p>
-                    Community 0 represents the members of the Order of the Phoenix. In Community 1 the nodes are all
-                    involved in the break in at the ministry of magic. Community 2 illustrates the overlap in
-                    Dumbledore's story and the quest for the Horcruxes and the Deathly Hallows. Community 3 follows
-                    Voldemort’s storyline throughout the movie, from the murder of professor Burbage to the kidnapping
-                    of Ollivander. In Community 4 we find mainly minor characters such as the Dursleys and low tier
-                    Voldemort followers. Community 5 contains nodes of students at Hogwarts.
+                    Community 0 represents the members of the Order of the Phoenix. In Community 1 the nodes are all involved in the break in at the ministry of magic. Community 2 illustrates the overlap in Dumbledore's story and the quest for the Horcruxes, the Deathly Hallows, and the trip to Luna's house. Community 3 follows Voldemort’s storyline throughout the movie, from the murder of professor Burbage to the kidnapping of Ollivander. In Community 4 we find mainly minor characters such as the Dursleys and low tier Voldemort followers. Community 5 contains nodes of students at Hogwarts.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -1326,10 +1333,7 @@
                 </div>
                 <h3 class="center">Communities - Deathly Hallows Part II</h3>
                 <p>
-                    Community 0 are the students, professors and Order members involved in the battle of Hogwarts. In
-                    Community 1 illustrates the quest for the Horcruxes and Harry’s death. Community 2 is interesting as
-                    the common denominator between the nodes is the characters goal to protect or raise harry. Community
-                    3 contains the descendants of the Harry and Ginny, Ron and Hermione, and Tonks and Lupin.
+                    Community 0 are the students, professors and Order members involved in the battle of Hogwarts. Community 1 illustrates the quest for the Horcruxes and Harry’s death. Community 2 is interesting as the common denominator between the nodes is the characters goal to protect or raise harry. Community 3 contains the descendants of the Harry and Ginny, Ron and Hermione, and Tonks and Lupin.
                 </p>
                 <div class="row">
                     <div class="col l6">
@@ -1430,7 +1434,7 @@
                         wizarding universe from the view of an 11 year old. It is magical and fantastic, and danger is
                         not really comprehensible. The stakes are higher in the second and third, where the danger
                         becomes life threatening. In Goblet of Fire we are once again introduced to something magical
-                        and exciting. The fifth and sixth books both have both discouraging and encouraging plotlines
+                        and exciting. The fifth and sixth books both have both discouraging and encouraging plot lines
                         running in the books narrative. And as expected the seventh and last book Voldemort sends the
                         wizarding world into a downwards spiral, that Harry must save.
                     </p>
@@ -1453,7 +1457,7 @@
                     <h4 class="center">Movie-Scenes</h4>
                     <p>
                         The sentiment is calculated for a full scene, stage directions and all, as it was very hard to
-                        seperate the dialog, reasons are listed in the Notebook. The average sentiment of the movies are
+                        separate the dialog, reasons are listed in the Notebook. The average sentiment of the movies are
                         0.5 below that of the books, which would be interesting to further investigate. The drop in
                         Prisoner of Azkaban is due to a faulty scene. In Order of the Phoenix the sentiment is much
                         lower towards the end of the movie possibly indicating that the movie has better conveyed the
