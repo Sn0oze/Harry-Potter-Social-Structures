@@ -428,3 +428,13 @@ td span{
     font-weight: normal;
 }
 
+@media (max-width: 1200px) {
+    .cloud-text{
+        position: absolute;
+        top: 5px;
+        left:5px;
+        display: inline-block;
+        max-width: 200px;
+    }
+}
+
