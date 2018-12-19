@@ -25,9 +25,10 @@
                     style="margin-bottom: 20px">Social Graphs</span></div>
             <ul class="section table-of-contents">
                 <li><a href="#intro">Introduction</a></li>
-                <li><a href="#degrees">Network Dimensions</a></li>
-                <li><a href="#degreesContainer">Degrees Over Time</a></li>
+                <li><a href="#wikiNet">Wiki Network</a></li>
                 <li><a href="#movieNet">Movie Networks</a></li>
+                <li class="sub-section"><a href="#degrees">Network Dimensions</a></li>
+                <li class="sub-section"><a href="#degreesContainer">Degrees Over Time</a></li>
                 <li class="sub-section"><a href="#book1">Philosopher's Stone</a></li>
                 <li class="sub-section"><a href="#book2">Chamber of Secrets</a></li>
                 <li class="sub-section"><a href="#book3">Prisoner of Azkaban</a></li>
@@ -50,23 +51,22 @@
     </div>
     <div class="col s12 m10 no-padding">
         <h1 class="center title">The Social Structures of Harry Potter</h1>
-        <section>
-            <div id="intro" class="section scrollspy">
-                <div>
-                    <h2 class="center no_underline">Introduction</h2>
-                    <p>
-                        The focus of this project was to analyse the Harry Potter universe using
-                        social networks, sentiment analysis and word clouds. To analyse the social structured,
-                        Networks were created from the movie scripts. Sentiment analysis was used to estimate
-                        and contrast the mood for both the movies and books, and the essence of each book
-                        was isolated and visualized as word clouds.
-                    </p>
+        <section id="intro" class="scrollspy">
+            <div class="section">
+                <h2 class="center no_underline">Introduction</h2>
+                <div class="row">
+                    <div class="col l4">
+
+                    </div>
+                    <div class="col l8">
+
+                    </div>
                 </div>
             </div>
         </section>
 
 
-        <section>
+        <section id="wikiNet" class="scrollspy section">
             <h2 class="center no_underline">Wiki Network</h2>
             <div class="carousel carousel-slider wordcloud" data-indicators="true" style="min-height: 85vh">
                 <div class="carousel-item lighten-2 white-text wordcloud-img-container">
@@ -309,8 +309,21 @@
             </div>
         </section>
 
-        <section>
-            <div id="degrees" class="section scrollspy">
+        <section id="movieNet" class="scrollspy">
+            <div  class="section">
+                <div class="section-wrapper">
+                    <h2 class="center no_underline">Movie Networks</h2>
+                    <p>
+                        The following sections contain detailed networks for each movie and some statistics
+                        that try to break them down, set them into context and take a closer look at detected
+                        communities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="degrees" class="scrollspy">
+            <div class="section">
                 <div>
                     <h2 class="center no_underline">Network Dimensions</h2>
                     <p>
@@ -339,8 +352,8 @@
                 </div>
             </div>
         </section>
-        <section>
-            <div class=" section scrollspy" id="degreesContainer">
+        <section id="degreesContainer" class="scrollspy">
+            <div class=" section" >
                 <h2 class="center no_underline">Degrees Over Time</h2>
                 <p>
                     The graphs below include each character that was among the top 20 connected nodes
@@ -553,20 +566,8 @@
             </div>
         </section>
 
-        <section>
-            <div id="movieNet" class="section scrollspy">
-                <div class="section-wrapper">
-                    <h2 class="center no_underline">Movie Networks</h2>
-                    <p>
-                        The following sections contain detailed networks for each movie and some statistics
-                        that try to break them down, set them into context and take a closer look at detected
-                        communities.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div id="book1" class="section scrollspy">
+        <section id="book1" class="scrollspy">
+            <div class="section">
                 <div class="section-wrapper">
                     <h2 class="center"><span>Philosopher's Stone</span></h2>
                 </div>
@@ -656,8 +657,8 @@
             </div>
         </section>
 
-        <section>
-            <div id="book2" class="section scrollspy">
+        <section id="book2" class="scrollspy">
+            <div class="section">
                 <div class="section-wrapper">
                     <h2 class="center"><span>Chamber of Secrets</span></h2>
                 </div>
@@ -738,8 +739,8 @@
             </div>
         </section>
 
-        <section>
-            <div id="book3" class="section scrollspy">
+        <section id="book3" class="scrollspy">
+            <div class="section">
                 <div class="section-wrapper">
                     <h2 class="center"><span>Prisoner of Azkaban</span></h2>
                 </div>
@@ -814,8 +815,8 @@
             </div>
         </section>
 
-        <section>
-            <div id="book4" class="section scrollspy">
+        <section id="book4" class="scrollspy">
+            <div class="section">
                 <div class="section-wrapper">
                     <h2 class="center"><span>Goblet of Fire</span></h2>
                 </div>
@@ -888,8 +889,8 @@
             </div>
         </section>
 
-        <section>
-            <div id="book5" class="section scrollspy">
+        <section id="book5" class="scrollspy">
+            <div class="section">
                 <div class="section-wrapper">
                     <h2 class="center"><span>Order of the Phoenix</span></h2>
                 </div>
@@ -964,8 +965,8 @@
             </div>
         </section>
 
-        <section>
-            <div id="book6" class="section scrollspy">
+        <section id="book6" class="">
+            <div class="section">
                 <div class="section-wrapper">
                     <h2 class="center"><span>Half Blood Prince</span></h2>
                 </div>
@@ -1034,8 +1035,8 @@
                 </div>
             </div>
         </section>
-        <section>
-            <div id="book7" class="section scrollspy">
+        <section id="book7" class="scrollspy">
+            <div class="section">
                 <div class="section-wrapper">
                     <h2 class="center"><span>Deadly Hallows</span></h2>
                 </div>
