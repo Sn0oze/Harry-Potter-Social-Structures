@@ -201,7 +201,7 @@ body.dark{
 .legend-image-container img{
     max-width: 600px;
     height: auto;
-    background: #1b242a;
+    background: #4b5054;
 }
 
 .node-label.gryffindor{
@@ -428,7 +428,7 @@ td span{
     font-weight: normal;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
     .cloud-text{
         position: absolute;
         top: 5px;
