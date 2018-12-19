@@ -139,14 +139,6 @@ body.dark{
     height: 90vh;
 }
 
-a{
-    color: #ee6e73
-}
-
-a:visited{
-    color: #ffbeb0
-}
-
 
 .network-container img.community{
     width: 100%;
@@ -215,6 +207,10 @@ a:visited{
 .node-label.gryffindor{
     background: #CE0E00;
     opacity: 0.65;
+}
+
+.gryffindor{
+    color: #CE0E00;
 }
 
 .node-label.slytherin {
@@ -318,12 +314,21 @@ a:visited{
     cursor: pointer;
 }
 
+a{
+    color: #ee6e73
+}
+a:visited{
+    color: #ffbeb0
+}
 
 .github-link{
     color: white;
     padding-left: 16px;
 }
 
+a.github-link:visited{
+    color: white;
+}
 .github-container{
     position: fixed;
     bottom: 16px;
@@ -409,5 +414,17 @@ td span{
     font-weight: 500;
     padding-left: 14px;
     border-left: 2px solid #ee6e73;
+}
+
+.cloud-text{
+    position: absolute;
+    top: 5px;
+    left:5px;
+    display: inline-block;
+    max-width: 400px;
+}
+.cloud-text p{
+    text-align: left;
+    font-weight: normal;
 }
 
