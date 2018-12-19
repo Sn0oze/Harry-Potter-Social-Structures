@@ -1,6 +1,6 @@
 # SG_Harry_Potter
 
-[Website](https://s143923.github.io/SG_Harry_Potter/)
+[Website](https://sn0oze.github.io/Harry-Potter-Social-Structures/)
 
 Movie script files can be found in /movieScripts
 
