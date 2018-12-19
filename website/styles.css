@@ -382,3 +382,21 @@ td span{
 .hidden-row{
     display: none;
 }
+
+.sources ul{
+    margin-left: 20px;
+}
+.sources a{
+    color: white;
+    font-weight: 300;
+    padding-left: 16px;
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.sources a:hover{
+    font-weight: 500;
+    padding-left: 14px;
+    border-left: 2px solid #ee6e73;
+}
+

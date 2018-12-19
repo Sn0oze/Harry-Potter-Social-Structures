@@ -19,7 +19,7 @@
 <body class="dark">
 
 <div class="row margin-bottom-0">
-    <div class="col hide-on-small-only m2">
+    <div class="col hide-on-small-only m3 l2" style="overflow: hidden">
         <div class="fixed-position section">
             <div><img src="website/images/HP_Logo_White.png" width="100"><span
                     style="margin-bottom: 20px">Social Graphs</span></div>
@@ -44,22 +44,74 @@
                href="http://nbviewer.jupyter.org/github/sn0oze/Harry-Potter-Social-Structures/blob/master/Scripts/ExplainerNotebook.ipynb?flush_cache=true"
                target="_blank">Notebook</a>
             <div class="github-container">
-                <a class="github-link" href="https://github.com/S143923/SG_Harry_Potter" target="_blank"><i
+                <a class="github-link" href="https://github.com/Sn0oze/Harry-Potter-Social-Structures" target="_blank"><i
                         class="fab fa-github fa-3x	"></i></a>
             </div>
         </div>
     </div>
-    <div class="col s12 m10 no-padding">
+    <div class="col s12 m9 l10 no-padding">
         <h1 class="center title">The Social Structures of Harry Potter</h1>
         <section id="intro" class="scrollspy">
             <div class="section">
                 <h2 class="center no_underline">Introduction</h2>
                 <div class="row">
                     <div class="col l4">
-
+                        <h5>Data Set Links</h5>
+                        <ul class="sources">
+                            <h6>General</h6>
+                            <li><a href="https://s3.amazonaws.com/wikia_xml_dumps/h/ha/harrypotter_pages_current.xml.7z" download>Fandom Wiki Dump</a> - 273 MB</li>
+                            <li><a href="characters.json" download>Character List</a> - 37 KB</li>
+                            <li><a href="Data_Set_S1.txt" download>Sentiment Score</a> - 407 KB</li>
+                            <li><a href="Scripts/characterInfoDict2.json" download="characterInfo">Extracted Character info</a> - 102 KB</li>
+                            <li><a href="books/HP_all.txt" download="BookCollection">Book Collection</a> - 6.5 MB</li>
+                            <li>
+                                <h6>Processed Movie Scripts</h6>
+                                <ul>
+                                    <li><a href="movieScripts/(1)_Harry_Potter_and_the_Philosophers_Stone.txt" download>Philosopher's Stone</a> - 101 KB</li>
+                                    <li><a href="movieScripts/(2)_Harry_Potter_and_the_Chamber_of_Secrets.txt" download>Chamber of secrets</a> - 173 KB</li>
+                                    <li><a href="movieScripts/(3)_Harry_Potter_and_the_Prisoner_of_Azkaban.txt" download>Prisoner of Azkaban</a> - 161 KB</li>
+                                    <li><a href="movieScripts/(4)_Harry_Potter_and_the_Goblet_of_Fire.txt" download>Goblet of Fire</a> - 78 KB</li>
+                                    <li><a href="movieScripts/HP5.txt" download>Order of the Phoenix</a> - 56 KB</li>
+                                    <li><a href="movieScripts/(6)_Harry_Potter_and_the_Half-Blood_Prince.txt" download>Half-Blood Prince</a> - 192 KB</li>
+                                    <li><a href="movieScripts/(7)_Harry_Potter_and_the_Deathly_Hallows_Part_1.txt" download>Deathly Hallows I</a> - 182 KB</li>
+                                    <li><a href="movieScripts/(8)_Harry_Potter_and_the_Deathly_Hallows_Part_2.txt" download>Deathly Hallows II</a> - 197 KB</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="hide-on-med-and-up">
+                            <h5>Other Links</h5>
+                            <ul>
+                                <li>
+                                    <a href="http://nbviewer.jupyter.org/github/sn0oze/Harry-Potter-Social-Structures/blob/master/Scripts/ExplainerNotebook.ipynb" target="_blank">Notebook</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/Sn0oze/Harry-Potter-Social-Structures" target="_blank">Github</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col l8">
-
+                        <p>
+                            The focus of this project was to to take a closer look at the Harry potter universe using
+                            social networks, sentiment analysis and word clouds. The Harry Potter series is one of the most popular
+                            book and movies series in recent years and our goal was to use those tools to
+                            gain new insights into known and loved material.
+                        </p>
+                        <p>
+                            Several networks have been created to analyze the social structure of the Harry Potter universe.
+                            A networks that maps out the relationships between most known characters that have lived throughout the
+                            different eras ot the universe, was created based on the Harry Potter Fandom wiki.
+                            Not only did the Wiki contain information about the relation ships between the characters, it also
+                            provided some basic information such as the house, blood status and loyalties of each character.
+                            In addition the Wiki network each movies were also turned into a network based on the character's
+                            appearances in the same scenes, with the intention to capture the development of the social structure over time.
+                        </p>
+                        <p>
+                            In addition to the social structures we also extracted the essence of each book to illustrate the major plot lines
+                            of the books.
+                            Finally, the books and movies were analyzed for their sentiment
+                            to show the mood of the series as if progresses towards the climax of the final battle between good and evil.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -131,7 +183,7 @@
                     <th>in degree centrality</th>
                     <th>out degree centrality</th>
                     <th>eigenvector centrality</th>
-                    <th>betweeness centrality</th>
+                    <th>betweenness centrality</th>
                 </tr>
                 <tr>
                     <td>harry potter<span> 471</span></td>
@@ -965,7 +1017,7 @@
             </div>
         </section>
 
-        <section id="book6" class="">
+        <section id="book6" class="scrollspy">
             <div class="section">
                 <div class="section-wrapper">
                     <h2 class="center"><span>Half Blood Prince</span></h2>
