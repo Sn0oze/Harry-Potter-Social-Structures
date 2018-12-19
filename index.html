@@ -1363,48 +1363,103 @@
             <div id="clouds" class="section scrollspy">
                 <div class="section-wrapper">
                     <h2 class="center no_underline">Word Clouds</h2>
-                    <p>
-                        The word clouds show the most frequent words of each book that also are most unique for to that
-                        book compared to the whole series. This is achieved by using TF-IDF which diminishes the weight
-                        of frequent words based on the amount of other books they appears in.
-                    </p>
-                    <p>
-                        As an example, the first word cloud from Philosopher’s Stone, words like “Fluffy” and “Flamel”
-                        show as big letters, which means that these words are frequent and most unique to that
-                        particular book. It provides a much better overview of the content of each book compared to a
-                        word cloud that is generated for just the plain book text as all important characters would take
-                        up most of the space for each book which wouldn’t be very interesting.
-                    </p>
+                    <div class="section">
+                        <p>
+                            The word clouds show the most frequent words of each book that also are most unique for to that
+                            book compared to the whole series. This is achieved by using TF-IDF which diminishes the weight
+                            of frequent words based on the amount of other books they appears in.
+                        </p>
+                        <p>
+                            As an example, the first word cloud from Philosopher’s Stone, words like “Fluffy” and “Flamel”
+                            show as big letters, which means that these words are frequent and most unique to that
+                            particular book. It provides a much better overview of the content of each book compared to a
+                            word cloud that is generated for just the plain book text as all important characters would take
+                            up most of the space for each book which wouldn’t be very interesting.
+                        </p>
+                    </div>
                     <div class="carousel carousel-slider wordcloud" data-indicators="true" style="min-height: 85vh">
                         <div class="carousel-item lighten-2 white-text wordcloud-img-container">
                             <p>Philosopher’s Stone</p>
+                            <span>
+                                Nicolas + Flamel: Dumbledore's friend and the owner of the Philosopher’s stone.
+                                Fluffy: The first obstacle to protect the Philosopher's stone. Hagrids challenge.
+                                Pier: Piers Polkiss is Dudley Dursley's friend, brought to the zoo where Harry talk to a snake.
+                                Smelting: The school the Dursley’s intend to send Harry to before Hagrid come to get him.
+                            </span>
                             <img src="plots/clouds/book1.png" class="wordcloud-img">
                         </div>
                         <div class="carousel-item lighten-2 white-text wordcloud-img-container">
                             <p>Chamber of Secrets</p>
+                            <span>
+                                Mandrake: a plant which has the property to revive petrified victims.
+                                Myrtle: Moaning Myrtle is the teenage ghost haunting the girls bathroom, and the only
+                                victim to die by looking straight into the eyes of the basilisk.
+                            </span>
                             <img src="plots/clouds/book2.png" class="wordcloud-img">
                         </div>
                         <div class="carousel-item lighten-2 white-text wordcloud-img-container">
                             <p>Prisoner of Azkaban</p>
+                            <span>
+                                No singularly significant words stand out.
+                                Pettigrew: The friend of James Potter who betray him to Voldemort. Ron’s rat Scabbers is his animagus form.
+                                Marge: Uncle Vernon’s sister who Harry blows up after she criticizes his family.
+                                Boggart: A magical creature that takes the shape of the observes wise fear.
+                                Executioner: A representative from the ministry, whos job is to discard to magical creatures deemed too dangerous to live.
+                            </span>
                             <img src="plots/clouds/book3.png" class="wordcloud-img">
                         </div>
                         <div class="carousel-item lighten-2 white-text wordcloud-img-container">
                             <p>Goblet of Fire</p>
+                            <span>
+                                Ludo + Bagman: works for the ministry of magic as the head of the department of magical games and sport. Is addicted to gambling. and when he can not pay people back for their bets on the Quidditch world cup, he uses Harry's chances in the triwizard tournament to try and save himself.
+                                Winkey: Crouch's house elf, who gets fired after suspected relations to Voldemort. Is then hired in the Hogwarts kitchens where she spends her time drinking her sorrows away.
+                                Champion: Each school participating in the triwizard tournament has a champion selected from the goblet of fire to compete.
+                                Karkaroff: The headmaster of Durmstrang, and a old supporter of Voldemort.
+                            </span>
                             <img src="plots/clouds/book4.png" class="wordcloud-img">
                         </div>
                         <div class="carousel-item lighten-2 white-text wordcloud-img-container">
-                            <p>ORder of the Phoenix</p>
+                            <p>Order of the Phoenix</p>
+                            <span>
+                                Few singularly significant words stand out.
+                                Kreacher: THe house elf belonging to the Black family, and thus passed down to Sirius Black.
+                                Umbridge: New teacher for Defence Against the Dark Arts, and representative from the ministry for magic.
+                                Luna: A Ravenclaw student i the year below Harry. Her peculiar and calm nature has labeled her Loony Luna to other student, but she becomes a part of Harry innercircle partly due to her honesty and loyalty.
+                                Prophesy: Made by Trelawney about the future battle between Harry and Voldemort. It is also what caused Voldemort to go after Harry to begin with.
+                            </span>
                             <img src="plots/clouds/book5.png" class="wordcloud-img">
                         </div>
                         <div class="carousel-item lighten-2 white-text wordcloud-img-container">
                             <p>Half-Blood Prince</p>
+                            <span>
+                                McLaggen: A Gryffindor one year above Harry. Lost the keeper position in the Gryffindor quidditch team to Ron, and stands in while Ron is in the hospital wing.
+                                Slughorn: The new Potions professor and the founder of the Slugclub, which is for student which he deems to have favorable futures.
+                                Prince: Half Blood Prince the author of Harry’s potions book. Turns out to be Snape, as his mother's maiden name is Prince, and she was his magical parental half.
+                                Morfin:  A descendant of Salazar Slytherin, and bother to Voldemort's mother.
+                            </span>
                             <img src="plots/clouds/book6.png" class="wordcloud-img">
                         </div>
                         <div class="carousel-item lighten-2 white-text wordcloud-img-container">
                             <p>Deathly Hallows</p>
+                            <span>
+                                Elder: The elder wand, is one of the Deathly Hallows. It belongs mainly to Dumbledore during Harry's story.
+                                Griphook: The goblin who works for Gringotts Wizarding bank, and in  Philosopher’s stone showed Harry his money. He is kidnapped by Voldemort and eventually helps the trio break into the wizarding bank.
+                                Cattermole: family name of the ministry official that Ron impersonates when the trio breaks into the ministry of magic.
+                                Xenophilius: Mr. Lovegood is Luna’s father, and the one to help the trio understand the story of the Peverell brothers and the Deathly Hallows.
+                                Hallow: The Deathly Hallows consists of the elder wand, invisibility cloak and resurrection stone.
+                            </span>
                             <img src="plots/clouds/book7.png" class="wordcloud-img">
                         </div>
                     </div>
+                </div>
+                <div class="section">
+                    <p>
+                        It requires some knowledge of the books, but the TF-IDF works remarkably well to summarize the content of the books. It works best
+                        at emphasizing the characters that are most crucial in just one or two books. Those names do a good job at reminding readers
+                        about the plot lines in which the played an important role. Apart character names it also finds quite a few objects that are important
+                        in a few books like Horcrux, necklace and map. Most Importantly the result is actually interesting  to explore because it is not
+                        the same words over and over again in different sizes.
+                    </p>
                 </div>
             </div>
         </section>
