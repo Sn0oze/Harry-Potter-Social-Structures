@@ -16,12 +16,12 @@
     <title>Harry Potter</title>
 </head>
 
-<body class="dark">
+<body>
 
 <div class="row margin-bottom-0">
     <div class="col hide-on-small-only m3 l2" style="overflow: hidden">
         <div class="fixed-position section">
-            <div><img src="website/images/HP_Logo_White.png" width="100"><span
+            <div><img src="website/images/HP_Logo_Dark.png" width="100"><span
                     style="margin-bottom: 20px">Social Graphs</span></div>
             <ul class="section table-of-contents">
                 <li><a href="#intro">Introduction</a></li>
@@ -51,47 +51,11 @@
     </div>
     <div class="col s12 m9 l10 no-padding">
         <h1 class="center title">The Social Structures of Harry Potter</h1>
-        <p class="center gryffindor">!Spoilers Ahead</p>
         <section id="intro" class="scrollspy">
             <div class="section">
                 <h2 class="center no_underline">Introduction</h2>
                 <div class="row">
-                    <div class="col l4">
-                        <h5>Data Set Links</h5>
-                        <ul class="sources">
-                            <li><a href="https://s3.amazonaws.com/wikia_xml_dumps/h/ha/harrypotter_pages_current.xml.7z" download>Fandom Wiki Dump</a> - 273 MB</li>
-                            <li><a href="characters.json" download>Character List</a> - 37 KB</li>
-                            <li><a href="Data_Set_S1.txt" download>Sentiment Score</a> - 407 KB</li>
-                            <li><a href="Scripts/characterInfoDict2.json" download="characterInfo">Extracted Character info</a> - 102 KB</li>
-                            <li><a href="books/HP_all.txt" download="BookCollection">Book Collection</a> - 6.5 MB</li>
-                            <li><a href="Scripts/nameDict.json" download="BookCollection">Name Mappings to Recognize Characters</a> - 52 KB</li>
-                            <li>
-                                <span style="padding-left: 16px">Scripts</span>
-                                <ul>
-                                    <li><a href="movieScripts/(1)_Harry_Potter_and_the_Philosophers_Stone.txt" download>Philosopher's Stone</a> - 101 KB</li>
-                                    <li><a href="movieScripts/(2)_Harry_Potter_and_the_Chamber_of_Secrets.txt" download>Chamber of secrets</a> - 173 KB</li>
-                                    <li><a href="movieScripts/(3)_Harry_Potter_and_the_Prisoner_of_Azkaban.txt" download>Prisoner of Azkaban</a> - 161 KB</li>
-                                    <li><a href="movieScripts/(4)_Harry_Potter_and_the_Goblet_of_Fire.txt" download>Goblet of Fire</a> - 78 KB</li>
-                                    <li><a href="movieScripts/HP5.txt" download>Order of the Phoenix</a> - 56 KB</li>
-                                    <li><a href="movieScripts/(6)_Harry_Potter_and_the_Half-Blood_Prince.txt" download>Half-Blood Prince</a> - 192 KB</li>
-                                    <li><a href="movieScripts/(7)_Harry_Potter_and_the_Deathly_Hallows_Part_1.txt" download>Deathly Hallows I</a> - 182 KB</li>
-                                    <li><a href="movieScripts/(8)_Harry_Potter_and_the_Deathly_Hallows_Part_2.txt" download>Deathly Hallows II</a> - 197 KB</li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="hide-on-med-and-up">
-                            <h5>Other Links</h5>
-                            <ul>
-                                <li>
-                                    <a href="http://nbviewer.jupyter.org/github/sn0oze/Harry-Potter-Social-Structures/blob/master/Scripts/ExplainerNotebook.ipynb" target="_blank">Notebook</a>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/Sn0oze/Harry-Potter-Social-Structures" target="_blank">Github</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col l8">
+                    <div class="col">
                         <p>
                             The focus of this project was to to take a closer look at the Harry potter universe using
                             social networks, sentiment analysis and word clouds. The Harry Potter series is one of the most popular
@@ -179,7 +143,7 @@
                             <div class="legend">
                                 <div><span class="node-label phoenix"></span>Order of the Phoenix / Dumbledore's Army
                                 </div>
-                                <div><span class="node-label slytherin"></span>Death Eaters / Loyal to Voldemort</div>
+                                <div><span class="node-label eater"></span>Death Eaters / Loyal to Voldemort</div>
                                 <div><span class="node-label default"></span>Other</div>
                             </div>
                         </div>
@@ -220,21 +184,21 @@
             </div>
             <div class="row">
                 <div class="col l4">
-                    <p class="center">Degree Distributions</p>
+                    <p class="center h4 bold">Degree Distributions</p>
                     <div class="image-container">
-                        <img src="plots/distributions/wikiDist.png" alt="distribution">
+                        <img class="degree-image" src="plots/distributions/wikiDist.png" alt="distribution">
                     </div>
                 </div>
                 <div class="col l4">
-                    <p class="center">Degree Distributions with Log Scale</p>
+                    <p class="center h4 bold">Degree Distributions with Log Scale</p>
                     <div class="image-container">
-                        <img src="plots/distributions/wikiDistLogLog.png" alt="distribution">
+                        <img class="degree-image" src="plots/distributions/wikiDistLogLog.png" alt="distribution">
                     </div>
                 </div>
                 <div class="col l4">
-                    <p class="center">Degree Distributions with Log Scale</p>
+                    <p class="center h4 bold">Degree Distributions with Log Scale</p>
                     <div class="image-container">
-                        <img src="plots/distributions/inOutDist.png" alt="distribution">
+                        <img class="degree-image" src="plots/distributions/inOutDist.png" alt="distribution">
                     </div>
                 </div>
             </div>
@@ -556,7 +520,7 @@
                         </p>
                     </div>
                     <div class="image-container">
-                        <p>Movie Network size over Time</p>
+                        <p class="h4 bold">Movie Network size over Time</p>
                         <img class="sequence-image" src="plots/degreeSeries.png" alt="degreesOverTime">
                     </div>
                     <p>
@@ -1400,7 +1364,7 @@
                         </p>
                     </div>
                     <div class="carousel carousel-slider wordcloud" data-indicators="true" style="min-height: 85vh">
-                        <div class="carousel-item lighten-2 white-text wordcloud-img-container">
+                        <div class="carousel-item wordcloud-img-container">
                             <div class="cloud-text">
                                 <p>Nicolas + Flamel: Dumbledore's friend and the owner of the Philosopher’s stone</p>
                                 <p>Fluffy: The first obstacle to protect the Philosopher's stone. Hagrids challenge</p>
@@ -1411,7 +1375,7 @@
                             <p>Philosopher’s Stone</p>
                             <img src="plots/clouds/book1.png" class="wordcloud-img">
                         </div>
-                        <div class="carousel-item lighten-2 white-text wordcloud-img-container">
+                        <div class="carousel-item wordcloud-img-container">
                             <p>Chamber of Secrets</p>
                             <div class="cloud-text">
                                 <p>
@@ -1432,7 +1396,7 @@
                             </div>
                             <img src="plots/clouds/book2.png" class="wordcloud-img">
                         </div>
-                        <div class="carousel-item lighten-2 white-text wordcloud-img-container">
+                        <div class="carousel-item wordcloud-img-container">
                             <p>Prisoner of Azkaban</p>
                             <div class="cloud-text">
                                 <p>
@@ -1450,7 +1414,7 @@
                             </div>
                             <img src="plots/clouds/book3.png" class="wordcloud-img">
                         </div>
-                        <div class="carousel-item lighten-2 white-text wordcloud-img-container">
+                        <div class="carousel-item wordcloud-img-container">
                             <p>Goblet of Fire</p>
                             <div class="cloud-text">
                                 <p>
@@ -1473,7 +1437,7 @@
                             </div>
                             <img src="plots/clouds/book4.png" class="wordcloud-img">
                         </div>
-                        <div class="carousel-item lighten-2 white-text wordcloud-img-container">
+                        <div class="carousel-item wordcloud-img-container">
                             <p>Order of the Phoenix</p>
                             <div class="cloud-text">
                                 <p>
@@ -1491,7 +1455,7 @@
                             </div>
                             <img src="plots/clouds/book5.png" class="wordcloud-img">
                         </div>
-                        <div class="carousel-item lighten-2 white-text wordcloud-img-container">
+                        <div class="carousel-item wordcloud-img-container">
                             <p>Half-Blood Prince</p>
                             <div class="cloud-text">
                                 <p>
@@ -1509,7 +1473,7 @@
                             </div>
                             <img src="plots/clouds/book6.png" class="wordcloud-img">
                         </div>
-                        <div class="carousel-item lighten-2 white-text wordcloud-img-container">
+                        <div class="carousel-item wordcloud-img-container">
                             <p>Deathly Hallows</p>
                             <div class="cloud-text">
                                 <p>
@@ -1576,7 +1540,7 @@
                         less “happy”, as expected, compared to the other books by looking at the graph.
                     </p>
                     <div class="image-container">
-                        <p>Sentiments by Book</p>
+                        <p class="h4 bold">Sentiments by Book</p>
                         <img class="sent-image" src="plots/sentimants/sentBook.png" alt="sentiment">
                     </div>
                     <h4 class="center">Chapters</h4>
@@ -1590,7 +1554,7 @@
                         start of the book.
                     </p>
                     <div class="image-container">
-                        <p>Sentiments by Chapter</p>
+                        <p class="h4 bold">Sentiments by Chapter</p>
                         <img class="sent-image" src="plots/sentimants/sentChap.png" alt="sentiment">
                     </div>
                     <h4 class="center">Movie-Scenes</h4>
@@ -1603,7 +1567,7 @@
                         Cedric and Dumbledore are however not very clearly identifiable.
                     </p>
                     <div class="image-container">
-                        <p>Sentiments by Movie-Scenes</p>
+                        <p class="h4 bold">Sentiments by Movie-Scenes</p>
                         <img class="sent-image" src="plots/sentimants/sentScenes.png" alt="sentiment">
                     </div>
                 </div>
