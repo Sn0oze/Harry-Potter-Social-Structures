@@ -53,6 +53,7 @@ h4, .h4{
 
 .table-of-contents li a{
     color: #474747;
+    border-bottom: none;
 }
 
 
@@ -85,7 +86,7 @@ h4, .h4{
 }
 
 .carousel .indicators .indicator-item {
-    background-color: #474747;
+    background-color: #a6a6a6;
 }
 .carousel .indicators .indicator-item.active {
     background-color: #0d0d0d;
@@ -314,11 +315,21 @@ h4, .h4{
     cursor: pointer;
 }
 
-a{
-    color: #ee6e73
+.menu-link:hover{
+    color: #474747;
 }
-a:visited{
-    color: #0d0d0d
+
+a.link{
+    color: #ee6e73;
+    border-bottom: solid #ee6e73 1px;
+}
+a.link:hover, a.link:visited:hover{
+    color: #e93f45;
+    border-bottom: solid #e93f45 1px;
+}
+a.link:visited{
+    color: #f39b9e;
+    border-bottom: solid #f39b9e 1px;
 }
 
 .github-link{
